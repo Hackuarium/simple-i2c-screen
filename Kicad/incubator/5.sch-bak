@@ -245,8 +245,8 @@ Text HLabel 5800 4175 0    50   Input ~ 0
 GND
 Wire Wire Line
 	5800 4100 5800 4175
-Text Notes 3175 4650 0    50   ~ 0
-The inductor’s DC resistance should be less than 100mΩ.\n \nThe  input  capacitor,  electrolytic,  or  ceramics  with  low  ESR\nshould  be  used.
+Text Notes 3175 5100 0    50   ~ 0
+The inductor’s DC resistance should be less than 100mΩ. \n(DC current rating for the inductor of at least 35% higher \nthan the maximum load current).\n \nThe  input  capacitor,  electrolytic,  or  ceramics  with  low  ESR\nshould  be  used.
 Wire Wire Line
 	3350 3750 3625 3750
 Connection ~ 3625 3750
@@ -263,4 +263,6 @@ F 3 "https://www.diodes.com/assets/Datasheets/AP63200-AP63201-AP63203-AP63205.pd
 	1    4075 3850
 	1    0    0    -1  
 $EndComp
+Text Notes 3175 4525 0    50   ~ 0
+V_IN = 3.8 to 32 V\nI_max = 2 A
 $EndSCHEMATC

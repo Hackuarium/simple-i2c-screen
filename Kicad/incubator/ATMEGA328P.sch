@@ -152,7 +152,6 @@ Wire Wire Line
 NoConn ~ 5575 2725
 NoConn ~ 5575 2625
 NoConn ~ 5575 2425
-NoConn ~ 6275 2125
 NoConn ~ 6775 2425
 NoConn ~ 6775 2525
 NoConn ~ 6775 2625
@@ -247,16 +246,21 @@ F 3 "" H 6175 1975 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	6175 2050 6325 2050
+	6175 2050 6275 2050
 $Comp
 L Jumper:SolderJumper_2_Open JP1
 U 1 1 610E209B
 P 5150 4125
 F 0 "JP1" V 5196 4037 50  0000 R CNN
 F 1 "SolderJumper_2_Open" V 5105 4037 50  0000 R CNN
-F 2 "Jumper:SolderJumper-2_P1.3mm_Bridged_RoundedPad1.0x1.5mm" H 5150 4125 50  0001 C CNN
+F 2 "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm" H 5150 4125 50  0001 C CNN
 F 3 "~" H 5150 4125 50  0001 C CNN
 	1    5150 4125
 	0    -1   -1   0   
 $EndComp
+Wire Wire Line
+	6275 2125 6275 2050
+Connection ~ 6275 2050
+Wire Wire Line
+	6275 2050 6325 2050
 $EndSCHEMATC

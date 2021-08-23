@@ -1,0 +1,15 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP Barrel_Jack_MountingPin
+D DC Barrel Jack with a mounting pin
+K DC power barrel jack connector
+F ~
+$ENDCMP
+#
+$CMP HS100-4R0J
+D Wirewound Resistors HSC100 4R0 5%
+K R res resistor Wirewound
+F https://www.mouser.com/datasheet/2/418/5/ENG_CD_1625999_AH2-1990035.pdf
+$ENDCMP
+#
+#End Doc Library

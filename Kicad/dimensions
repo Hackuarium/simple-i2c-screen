@@ -1,0 +1,36 @@
+origin (0, 73,660) Eagle to Kicad
+
+holes
+1: Ok
+2: Ok
+3: Ok
+4: Ok
+Eagle 95,25 3,81
+Kicad 95,25 -3,81
+
+
+
+rotary push button: Ok
+85,0506	12,6151
+
+
+gnd to center = 7,50 2,50
+
+(85,0506 - 7,50)	-12,6151 + 2,50
+
+LCD: Ok
+Size
+80,5	33,5
+gnd to center: (40,25 - 8,25) (16,75 - 2,75)
+
+Eagle 49,53	53,34
+Kicad:
+X: 49,53 + (40,25 - 8,25)
+Y: -53,34 - (16,75 - 2,75)
+
+
+Pot: Ok
+4,445	38,735
+gnd to center	0	2,54
+
+Y: -38,735 + 2,54
