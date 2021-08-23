@@ -1006,6 +1006,11 @@
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
     )
+    (model ${KIPRJMOD}/package3d/barrel_jack.wrl
+      (offset (xyz -14 0 0))
+      (scale (xyz 0.4 0.4 0.4))
+      (rotate (xyz 0 0 -90))
+    )
   )
 
   (module incubator:E5566-Q0LK22-L (layer F.Cu) (tedit 5EE5B6E2) (tstamp 610CDFB1)
@@ -1056,6 +1061,16 @@
       (net 1 GND))
     (pad 7 np_thru_hole circle (at -3 -5.6 90) (size 2.413 2.413) (drill 2.413) (layers *.Cu *.Mask))
     (pad 8 np_thru_hole circle (at 8.999998 -5.6 90) (size 2.413 2.413) (drill 2.413) (layers *.Cu *.Mask))
+    (model ${KIPRJMOD}/package3d/rj12-6p6c.wrl
+      (at (xyz 0 0 0))
+      (scale (xyz 1 1 1))
+      (rotate (xyz 0 0 0))
+    )
+    (model ${KIPRJMOD}/package3d/rj12-6p6c.stp
+      (offset (xyz 2.87 12.2268 0))
+      (scale (xyz 1 1 1.15))
+      (rotate (xyz 90 180 0))
+    )
   )
 
   (module Connector_Molex:Molex_KK-254_AE-6410-05A_1x05_P2.54mm_Vertical (layer F.Cu) (tedit 5EA53D3B) (tstamp 6108CA67)
@@ -1551,6 +1566,11 @@
       (at (xyz 0 0 0))
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
+    )
+    (model ${KIPRJMOD}/package3d/AB2_ROT_ENC_W_SW.wrl
+      (offset (xyz 7.45 -2.5 0))
+      (scale (xyz 0.015 0.0153 0.015))
+      (rotate (xyz 0 0 -90))
     )
   )
 
