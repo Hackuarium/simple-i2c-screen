@@ -95,17 +95,17 @@ F 3 "" H 5075 4325 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	5150 4050 5075 4050
+	5150 3975 5075 3975
 Wire Wire Line
-	5075 4050 5075 4325
-Text GLabel 4975 4150 0    50   Input ~ 0
+	5075 3975 5075 4325
+Text GLabel 4975 4100 0    50   Input ~ 0
 SDA
-Text GLabel 4975 4250 0    50   Input ~ 0
+Text GLabel 4975 4225 0    50   Input ~ 0
 SCL
 Wire Wire Line
-	5150 4250 4975 4250
+	5150 4225 4975 4225
 Wire Wire Line
-	4975 4150 5150 4150
+	4975 4100 5150 4100
 $Comp
 L Mechanical:MountingHole H5
 U 1 1 6110AD0D
@@ -355,17 +355,6 @@ Text Notes 5500 7000 0    50   ~ 0
 FAN HOLES
 Text Notes 4675 6850 0    102  ~ 0
 HOLES
-$Comp
-L Connector_Generic:Conn_01x05 J5
-U 1 1 6118C3B2
-P 5350 4050
-F 0 "J5" H 5430 4092 50  0000 L CNN
-F 1 "Conn_01x05" H 5430 4001 50  0000 L CNN
-F 2 "Connector_Molex:Molex_KK-254_AE-6410-05A_1x05_P2.54mm_Vertical" H 5350 4050 50  0001 C CNN
-F 3 "~" H 5350 4050 50  0001 C CNN
-	1    5350 4050
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	5025 1675 4950 1675
 Wire Wire Line
@@ -597,10 +586,6 @@ F 3 "~" H 7600 3675 50  0001 C CNN
 $EndComp
 Text GLabel 2100 1925 2    50   Input ~ 0
 VIN
-Text GLabel 4975 3950 0    50   Input ~ 0
-VIN
-Wire Wire Line
-	4975 3950 5150 3950
 Text GLabel 8050 3325 2    50   Input ~ 0
 ~RESET
 Text GLabel 7275 3575 0    50   Input ~ 0
@@ -701,4 +686,48 @@ F 3 "http://www.onsemi.com/pub_link/Collateral/MBR0520LT1-D.PDF" H 6950 3775 50 
 	1    0    0    -1  
 $EndComp
 NoConn ~ 7400 3875
+$Comp
+L Connector_Generic:Conn_01x01 J3
+U 1 1 6124B8B1
+P 5350 3850
+F 0 "J3" H 5430 3892 50  0000 L CNN
+F 1 "Conn_01x01" H 5430 3801 50  0000 L CNN
+F 2 "Connector_Wire:SolderWirePad_1x01_SMD_5x10mm" H 5350 3850 50  0001 C CNN
+F 3 "~" H 5350 3850 50  0001 C CNN
+	1    5350 3850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x01 J5
+U 1 1 61251C91
+P 5350 3975
+F 0 "J5" H 5430 4017 50  0000 L CNN
+F 1 "Conn_01x01" H 5430 3926 50  0000 L CNN
+F 2 "Connector_Wire:SolderWirePad_1x01_SMD_5x10mm" H 5350 3975 50  0001 C CNN
+F 3 "~" H 5350 3975 50  0001 C CNN
+	1    5350 3975
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x01 J6
+U 1 1 61252053
+P 5350 4100
+F 0 "J6" H 5430 4142 50  0000 L CNN
+F 1 "Conn_01x01" H 5430 4051 50  0000 L CNN
+F 2 "Connector_Wire:SolderWirePad_1x01_SMD_5x10mm" H 5350 4100 50  0001 C CNN
+F 3 "~" H 5350 4100 50  0001 C CNN
+	1    5350 4100
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x01 J7
+U 1 1 61252475
+P 5350 4225
+F 0 "J7" H 5430 4267 50  0000 L CNN
+F 1 "Conn_01x01" H 5430 4176 50  0000 L CNN
+F 2 "Connector_Wire:SolderWirePad_1x01_SMD_5x10mm" H 5350 4225 50  0001 C CNN
+F 3 "~" H 5350 4225 50  0001 C CNN
+	1    5350 4225
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

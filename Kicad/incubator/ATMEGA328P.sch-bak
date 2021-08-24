@@ -253,7 +253,7 @@ U 1 1 610E209B
 P 5150 4125
 F 0 "JP1" V 5196 4037 50  0000 R CNN
 F 1 "SolderJumper_2_Open" V 5105 4037 50  0000 R CNN
-F 2 "Jumper:SolderJumper-2_P1.3mm_Bridged_RoundedPad1.0x1.5mm" H 5150 4125 50  0001 C CNN
+F 2 "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm" H 5150 4125 50  0001 C CNN
 F 3 "~" H 5150 4125 50  0001 C CNN
 	1    5150 4125
 	0    -1   -1   0   
