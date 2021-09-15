@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source /home/camilo/git/simple-i2c-screen/Kicad/incubator/incubator.sch)
-    (date "Di 14 Sep 2021 10:16:11")
+    (date "Mi 15 Sep 2021 09:13:04")
     (tool "Eeschema 5.1.10-88a1d61d58~90~ubuntu20.04.1")
     (sheet (number 1) (name /) (tstamps /)
       (title_block

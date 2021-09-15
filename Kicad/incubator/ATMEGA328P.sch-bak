@@ -14,7 +14,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L MCU_Microchip_ATmega:ATmega328P-AU U2
+L incubator-rescue:ATmega328P-AU-MCU_Microchip_ATmega U2
 U 1 1 610AABC9
 P 6175 3625
 F 0 "U2" H 5775 2050 50  0000 C CNN
@@ -25,9 +25,11 @@ F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/ATmega328_P%20AVR%20MCU%20w
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:C C6
+L incubator-rescue:C-Device C6
 U 1 1 610AABD5
 P 4925 2275
+AR Path="/610AABD5" Ref="C6"  Part="1" 
+AR Path="/61116939/610AABD5" Ref="C6"  Part="1" 
 F 0 "C6" H 5040 2321 50  0000 L CNN
 F 1 "100n" H 5040 2230 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 4963 2125 50  0001 C CNN
@@ -36,9 +38,11 @@ F 3 "~" H 4925 2275 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:C C5
+L incubator-rescue:C-Device C5
 U 1 1 610AABDB
 P 4600 2275
+AR Path="/610AABDB" Ref="C5"  Part="1" 
+AR Path="/61116939/610AABDB" Ref="C5"  Part="1" 
 F 0 "C5" H 4715 2321 50  0000 L CNN
 F 1 "10u" H 4715 2230 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 4638 2125 50  0001 C CNN
@@ -54,7 +58,7 @@ Wire Wire Line
 	4600 2050 4925 2050
 Connection ~ 4925 2050
 $Comp
-L power:GND #PWR0115
+L incubator-rescue:GND-power #PWR0115
 U 1 1 610AABE5
 P 4600 2525
 F 0 "#PWR0115" H 4600 2275 50  0001 C CNN
@@ -74,7 +78,7 @@ Wire Wire Line
 	4600 2525 4600 2475
 Connection ~ 4600 2475
 $Comp
-L power:VCC #PWR0116
+L incubator-rescue:VCC-power #PWR0116
 U 1 1 610AABF0
 P 5150 3400
 F 0 "#PWR0116" H 5150 3250 50  0001 C CNN
@@ -115,9 +119,11 @@ Wire Wire Line
 Text GLabel 4850 3900 0    50   Input ~ 0
 ~RESET
 $Comp
-L Device:R R5
+L incubator-rescue:R-Device R5
 U 1 1 610AAC20
 P 5150 3675
+AR Path="/610AAC20" Ref="R5"  Part="1" 
+AR Path="/61116939/610AAC20" Ref="R5"  Part="1" 
 F 0 "R5" H 5220 3721 50  0000 L CNN
 F 1 "100k" H 5220 3630 50  0000 L CNN
 F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 5080 3675 50  0001 C CNN
@@ -174,7 +180,7 @@ D6
 Text HLabel 6850 4825 2    50   Input ~ 0
 D7
 $Comp
-L power:GND #PWR0117
+L incubator-rescue:GND-power #PWR0117
 U 1 1 610AAC01
 P 5150 4350
 F 0 "#PWR0117" H 5150 4100 50  0001 C CNN
@@ -187,7 +193,7 @@ $EndComp
 Text HLabel 4500 2475 0    50   Input ~ 0
 GND
 $Comp
-L power:GND #PWR0118
+L incubator-rescue:GND-power #PWR0118
 U 1 1 610AAC08
 P 6175 5250
 F 0 "#PWR0118" H 6175 5000 50  0001 C CNN
@@ -235,7 +241,7 @@ SCK
 Wire Wire Line
 	6175 1975 6175 2050
 $Comp
-L power:VCC #PWR0119
+L incubator-rescue:VCC-power #PWR0119
 U 1 1 610AABCF
 P 6175 1975
 F 0 "#PWR0119" H 6175 1825 50  0001 C CNN
@@ -248,7 +254,7 @@ $EndComp
 Wire Wire Line
 	6175 2050 6275 2050
 $Comp
-L Jumper:SolderJumper_2_Open JP1
+L incubator-rescue:SolderJumper_2_Open-Jumper JP1
 U 1 1 610E209B
 P 5150 4125
 F 0 "JP1" V 5196 4037 50  0000 R CNN

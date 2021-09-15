@@ -26,7 +26,7 @@ Wire Wire Line
 Wire Wire Line
 	6875 4750 6875 4650
 $Comp
-L power:GND #PWR?
+L incubator-rescue:GND-power #PWR?
 U 1 1 611BC109
 P 6875 4750
 AR Path="/611BC109" Ref="#PWR?"  Part="1" 
@@ -45,7 +45,7 @@ Wire Wire Line
 Wire Wire Line
 	6200 4550 6125 4550
 $Comp
-L power:GND #PWR?
+L incubator-rescue:GND-power #PWR?
 U 1 1 611BC115
 P 6125 4750
 AR Path="/611BC115" Ref="#PWR?"  Part="1" 
@@ -58,7 +58,7 @@ F 3 "" H 6125 4750 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:R_POT RV?
+L incubator-rescue:R_POT-Device RV?
 U 1 1 611BC11B
 P 6825 3175
 AR Path="/611BC11B" Ref="RV?"  Part="1" 
@@ -85,7 +85,7 @@ Wire Wire Line
 Wire Wire Line
 	4925 3450 4925 3275
 $Comp
-L power:GND #PWR?
+L incubator-rescue:GND-power #PWR?
 U 1 1 611BC128
 P 4925 3450
 AR Path="/611BC128" Ref="#PWR?"  Part="1" 
@@ -110,7 +110,7 @@ Wire Wire Line
 Wire Wire Line
 	5800 3575 5875 3575
 $Comp
-L power:GND #PWR?
+L incubator-rescue:GND-power #PWR?
 U 1 1 611BC13D
 P 5875 3625
 AR Path="/611BC13D" Ref="#PWR?"  Part="1" 
@@ -133,7 +133,7 @@ Wire Wire Line
 Wire Wire Line
 	6825 3825 6825 3725
 $Comp
-L power:GND #PWR?
+L incubator-rescue:GND-power #PWR?
 U 1 1 611BC148
 P 6825 3825
 AR Path="/611BC148" Ref="#PWR?"  Part="1" 
@@ -146,7 +146,7 @@ F 3 "" H 6825 3825 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:R R?
+L incubator-rescue:R-Device R?
 U 1 1 611BC14E
 P 6825 2775
 AR Path="/611BC14E" Ref="R?"  Part="1" 
@@ -159,7 +159,7 @@ F 3 "~" H 6825 2775 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:R R?
+L incubator-rescue:R-Device R?
 U 1 1 611BC154
 P 6825 3575
 AR Path="/611BC154" Ref="R?"  Part="1" 
@@ -172,7 +172,7 @@ F 3 "~" H 6825 3575 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:R R?
+L incubator-rescue:R-Device R?
 U 1 1 611BC15A
 P 6050 3475
 AR Path="/611BC15A" Ref="R?"  Part="1" 
@@ -185,7 +185,7 @@ F 3 "~" H 6050 3475 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Device:Rotary_Encoder_Switch SW?
+L incubator-rescue:Rotary_Encoder_Switch-Device SW?
 U 1 1 611BC160
 P 6500 4550
 AR Path="/611BC160" Ref="SW?"  Part="1" 
@@ -198,7 +198,7 @@ F 3 "~" H 6500 4810 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Display_Character:WC1602A DS?
+L incubator-rescue:WC1602A-Display_Character DS?
 U 1 1 611BC166
 P 5400 3775
 AR Path="/611BC166" Ref="DS?"  Part="1" 
@@ -223,7 +223,7 @@ D6
 Text HLabel 4925 4375 0    50   Input ~ 0
 D7
 $Comp
-L power:GND #PWR?
+L incubator-rescue:GND-power #PWR?
 U 1 1 611BFC11
 P 5400 4700
 AR Path="/611BFC11" Ref="#PWR?"  Part="1" 

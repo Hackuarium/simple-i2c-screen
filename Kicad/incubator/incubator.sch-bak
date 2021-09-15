@@ -14,7 +14,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L power:VCC #PWR0101
+L incubator-rescue:VCC-power #PWR0101
 U 1 1 610EABF4
 P 2200 925
 F 0 "#PWR0101" H 2200 775 50  0001 C CNN
@@ -25,7 +25,7 @@ F 3 "" H 2200 925 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L power:PWR_FLAG #FLG0101
+L incubator-rescue:PWR_FLAG-power #FLG0101
 U 1 1 610EC89D
 P 2200 775
 F 0 "#FLG0101" H 2200 850 50  0001 C CNN
@@ -38,7 +38,7 @@ $EndComp
 Wire Wire Line
 	2200 775  2200 925 
 $Comp
-L Mechanical:MountingHole H1
+L incubator-rescue:MountingHole-Mechanical H1
 U 1 1 610F54D5
 P 3325 7175
 F 0 "H1" H 3425 7221 50  0000 L CNN
@@ -49,7 +49,7 @@ F 3 "~" H 3325 7175 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Mechanical:MountingHole H3
+L incubator-rescue:MountingHole-Mechanical H3
 U 1 1 610F73E9
 P 4100 7175
 F 0 "H3" H 4200 7221 50  0000 L CNN
@@ -60,7 +60,7 @@ F 3 "~" H 4100 7175 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Mechanical:MountingHole H2
+L incubator-rescue:MountingHole-Mechanical H2
 U 1 1 610F770E
 P 3325 7475
 F 0 "H2" H 3425 7521 50  0000 L CNN
@@ -71,7 +71,7 @@ F 3 "~" H 3325 7475 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Mechanical:MountingHole H4
+L incubator-rescue:MountingHole-Mechanical H4
 U 1 1 610F79C8
 P 4100 7475
 F 0 "H4" H 4200 7521 50  0000 L CNN
@@ -84,7 +84,7 @@ $EndComp
 Text GLabel 4975 3850 0    50   Input ~ 0
 12V
 $Comp
-L power:GND #PWR0102
+L incubator-rescue:GND-power #PWR0102
 U 1 1 611DACB0
 P 5075 4325
 F 0 "#PWR0102" H 5075 4075 50  0001 C CNN
@@ -107,7 +107,7 @@ Wire Wire Line
 Wire Wire Line
 	4975 4100 5150 4100
 $Comp
-L Mechanical:MountingHole H5
+L incubator-rescue:MountingHole-Mechanical H5
 U 1 1 6110AD0D
 P 5025 7225
 F 0 "H5" H 5125 7271 50  0000 L CNN
@@ -118,7 +118,7 @@ F 3 "~" H 5025 7225 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Mechanical:MountingHole H7
+L incubator-rescue:MountingHole-Mechanical H7
 U 1 1 6110B26F
 P 5800 7225
 F 0 "H7" H 5900 7271 50  0000 L CNN
@@ -129,7 +129,7 @@ F 3 "~" H 5800 7225 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Mechanical:MountingHole H6
+L incubator-rescue:MountingHole-Mechanical H6
 U 1 1 6110B9C7
 P 5025 7500
 F 0 "H6" H 5125 7546 50  0000 L CNN
@@ -140,7 +140,7 @@ F 3 "~" H 5025 7500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Mechanical:MountingHole H8
+L incubator-rescue:MountingHole-Mechanical H8
 U 1 1 6110BE5B
 P 5800 7475
 F 0 "H8" H 5900 7521 50  0000 L CNN
@@ -151,7 +151,7 @@ F 3 "~" H 5800 7475 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:+12V #PWR0104
+L incubator-rescue:+12V-power #PWR0104
 U 1 1 61121502
 P 2700 925
 F 0 "#PWR0104" H 2700 775 50  0001 C CNN
@@ -162,7 +162,7 @@ F 3 "" H 2700 925 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L power:PWR_FLAG #FLG0102
+L incubator-rescue:PWR_FLAG-power #FLG0102
 U 1 1 611229BC
 P 2700 775
 F 0 "#FLG0102" H 2700 850 50  0001 C CNN
@@ -190,7 +190,7 @@ Wire Wire Line
 Wire Wire Line
 	825  2000 725  2000
 $Comp
-L power:GND #PWR0109
+L incubator-rescue:GND-power #PWR0109
 U 1 1 61068D10
 P 725 2050
 F 0 "#PWR0109" H 725 1800 50  0001 C CNN
@@ -214,7 +214,7 @@ Wire Wire Line
 Wire Wire Line
 	1425 3725 1425 3675
 $Comp
-L power:VCC #PWR0110
+L incubator-rescue:VCC-power #PWR0110
 U 1 1 610EC2F5
 P 1150 3625
 F 0 "#PWR0110" H 1150 3475 50  0001 C CNN
@@ -249,7 +249,7 @@ Wire Wire Line
 	1700 4300 1625 4300
 NoConn ~ 1700 4400
 $Comp
-L power:GND #PWR0111
+L incubator-rescue:GND-power #PWR0111
 U 1 1 610DD35E
 P 1625 4575
 F 0 "#PWR0111" H 1625 4325 50  0001 C CNN
@@ -268,7 +268,7 @@ Wire Wire Line
 Wire Wire Line
 	1700 4000 1650 4000
 $Comp
-L Device:R R1
+L incubator-rescue:R-Device R1
 U 1 1 610DC2A0
 P 1150 3875
 F 0 "R1" H 1220 3921 50  0000 L CNN
@@ -279,7 +279,7 @@ F 3 "~" H 1150 3875 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:R R2
+L incubator-rescue:R-Device R2
 U 1 1 610DBA03
 P 1425 3875
 F 0 "R2" H 1495 3921 50  0000 L CNN
@@ -292,7 +292,7 @@ $EndComp
 Text GLabel 1650 3925 1    50   Input ~ 0
 12V
 $Comp
-L Connector:RJ12 J4
+L incubator-rescue:RJ12-Connector J4
 U 1 1 610CF354
 P 2100 4200
 F 0 "J4" H 1770 4204 50  0000 R CNN
@@ -303,7 +303,7 @@ F 3 "~" V 2100 4225 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L power:+12V #PWR0112
+L incubator-rescue:+12V-power #PWR0112
 U 1 1 61248C9C
 P 1650 750
 F 0 "#PWR0112" H 1650 600 50  0001 C CNN
@@ -314,7 +314,7 @@ F 3 "" H 1650 750 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR0113
+L incubator-rescue:GND-power #PWR0113
 U 1 1 6124A445
 P 1650 1100
 F 0 "#PWR0113" H 1650 850 50  0001 C CNN
@@ -430,7 +430,7 @@ Wire Wire Line
 Text GLabel 5025 1975 2    50   Input ~ 0
 ~RESET
 $Comp
-L power:GND #PWR0105
+L incubator-rescue:GND-power #PWR0105
 U 1 1 6100E2AC
 P 3900 2950
 F 0 "#PWR0105" H 3900 2700 50  0001 C CNN
@@ -487,13 +487,13 @@ D3
 Text GLabel 7025 1625 2    50   Input ~ 0
 D4
 Text GLabel 7025 1775 2    50   Input ~ 0
-D5
-Text GLabel 7025 1875 2    50   Input ~ 0
 D6
+Text GLabel 7025 1875 2    50   Input ~ 0
+D5
 Text GLabel 7025 1975 2    50   Input ~ 0
 D7
 $Comp
-L power:GND #PWR0114
+L incubator-rescue:GND-power #PWR0114
 U 1 1 611DEBA3
 P 6300 2075
 F 0 "#PWR0114" H 6300 1825 50  0001 C CNN
@@ -574,7 +574,7 @@ F 3 "~" H 1325 885 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_01x06 J2
+L incubator-rescue:Conn_01x06-Connector_Generic J2
 U 1 1 610D151B
 P 7600 3675
 F 0 "J2" H 7680 3667 50  0000 L CNN
@@ -591,7 +591,7 @@ Text GLabel 8050 3325 2    50   Input ~ 0
 Text GLabel 7275 3575 0    50   Input ~ 0
 TX
 $Comp
-L power:GND #PWR0103
+L incubator-rescue:GND-power #PWR0103
 U 1 1 610EBE3F
 P 7325 4050
 F 0 "#PWR0103" H 7325 3800 50  0001 C CNN
@@ -612,7 +612,7 @@ Wire Wire Line
 Text GLabel 7275 3675 0    50   Input ~ 0
 RX
 $Comp
-L Diode:MBR0520LT D4
+L incubator-rescue:MBR0520LT-Diode D4
 U 1 1 61137931
 P 1875 1925
 F 0 "D4" H 1875 1708 50  0000 C CNN
@@ -625,7 +625,7 @@ $EndComp
 Wire Wire Line
 	2100 1925 2025 1925
 $Comp
-L Device:C C?
+L incubator-rescue:C-Device C?
 U 1 1 61154027
 P 7900 3525
 AR Path="/61116939/61154027" Ref="C?"  Part="1" 
@@ -650,7 +650,7 @@ Wire Wire Line
 Wire Wire Line
 	7325 3325 7900 3325
 $Comp
-L power:GND #PWR0106
+L incubator-rescue:GND-power #PWR0106
 U 1 1 6117A969
 P 7900 3775
 F 0 "#PWR0106" H 7900 3525 50  0001 C CNN
@@ -675,7 +675,7 @@ Connection ~ 1650 825
 Wire Wire Line
 	4975 3850 5150 3850
 $Comp
-L Diode:MBR0520LT D5
+L incubator-rescue:MBR0520LT-Diode D5
 U 1 1 61109529
 P 6950 3775
 F 0 "D5" H 6950 3558 50  0000 C CNN
@@ -687,7 +687,7 @@ F 3 "http://www.onsemi.com/pub_link/Collateral/MBR0520LT1-D.PDF" H 6950 3775 50 
 $EndComp
 NoConn ~ 7400 3875
 $Comp
-L Connector_Generic:Conn_01x01 J3
+L incubator-rescue:Conn_01x01-Connector_Generic J3
 U 1 1 6124B8B1
 P 5350 3850
 F 0 "J3" H 5430 3892 50  0000 L CNN
@@ -698,7 +698,7 @@ F 3 "~" H 5350 3850 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_01x01 J5
+L incubator-rescue:Conn_01x01-Connector_Generic J5
 U 1 1 61251C91
 P 5350 3975
 F 0 "J5" H 5430 4017 50  0000 L CNN
@@ -709,7 +709,7 @@ F 3 "~" H 5350 3975 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_01x01 J6
+L incubator-rescue:Conn_01x01-Connector_Generic J6
 U 1 1 61252053
 P 5350 4100
 F 0 "J6" H 5430 4142 50  0000 L CNN
@@ -720,7 +720,7 @@ F 3 "~" H 5350 4100 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_01x01 J7
+L incubator-rescue:Conn_01x01-Connector_Generic J7
 U 1 1 61252475
 P 5350 4225
 F 0 "J7" H 5430 4267 50  0000 L CNN

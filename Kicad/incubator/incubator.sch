@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 4
+Sheet 1 5
 Title "Incubator"
 Date "2021-07-26"
 Rev "0.1"
@@ -730,4 +730,10 @@ F 3 "~" H 5350 4225 50  0001 C CNN
 	1    5350 4225
 	1    0    0    -1  
 $EndComp
+$Sheet
+S 1000 2600 500  150 
+U 614262A1
+F0 "5 V Step-down" 150
+F1 "5V.sch" 150
+$EndSheet
 $EndSCHEMATC

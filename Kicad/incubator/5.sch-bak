@@ -16,7 +16,7 @@ $EndDescr
 Text Notes 6700 3425 0    118  ~ 0
 Power LEDS
 $Comp
-L Device:R R?
+L incubator-rescue:R-Device R?
 U 1 1 5E1D0FCF
 P 6850 3775
 AR Path="/5E0D7B92/5E1D0FCF" Ref="R?"  Part="1" 
@@ -37,7 +37,7 @@ Wire Wire Line
 Wire Wire Line
 	6850 3550 6850 3625
 $Comp
-L Device:R R?
+L incubator-rescue:R-Device R?
 U 1 1 5E1D0FDF
 P 7450 3775
 AR Path="/5E0D7B92/5E1D0FDF" Ref="R?"  Part="1" 
@@ -75,9 +75,11 @@ VIN
 Text HLabel 7450 3550 0    50   Input ~ 0
 5V
 $Comp
-L Device:LED D2
+L incubator-rescue:LED-Device D2
 U 1 1 5E883301
 P 6850 4175
+AR Path="/5E883301" Ref="D2"  Part="1" 
+AR Path="/61054A11/5E883301" Ref="D2"  Part="1" 
 F 0 "D2" H 6850 4100 50  0000 C CNN
 F 1 "GREEN" H 6850 4275 50  0000 C CNN
 F 2 "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 6850 4175 50  0001 C CNN
@@ -91,9 +93,11 @@ F 8 " 710-150080GS75000 " H 6850 4175 50  0001 C CNN "S1PN"
 	0    1    -1   0   
 $EndComp
 $Comp
-L Device:LED D3
+L incubator-rescue:LED-Device D3
 U 1 1 5E886D2D
 P 7450 4175
+AR Path="/5E886D2D" Ref="D3"  Part="1" 
+AR Path="/61054A11/5E886D2D" Ref="D3"  Part="1" 
 F 0 "D3" H 7450 4100 50  0000 C CNN
 F 1 "GREEN" H 7450 4275 50  0000 C CNN
 F 2 "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 7450 4175 50  0001 C CNN
@@ -110,9 +114,11 @@ Text Notes 7875 7050 0    315  ~ 0
 3.3V LDO
 NoConn ~ 2525 2150
 $Comp
-L Device:C C1
+L incubator-rescue:C-Device C1
 U 1 1 5EDC3622
 P 3350 3950
+AR Path="/5EDC3622" Ref="C1"  Part="1" 
+AR Path="/61054A11/5EDC3622" Ref="C1"  Part="1" 
 F 0 "C1" H 3465 3996 50  0000 L CNN
 F 1 "10u" H 3465 3905 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 3388 3800 50  0001 C CNN
@@ -147,9 +153,11 @@ GND
 Text HLabel 4075 4225 0    50   Input ~ 0
 GND
 $Comp
-L Device:C C2
+L incubator-rescue:C-Device C2
 U 1 1 5EDCC8A2
 P 4700 3850
+AR Path="/5EDCC8A2" Ref="C2"  Part="1" 
+AR Path="/61054A11/5EDCC8A2" Ref="C2"  Part="1" 
 F 0 "C2" V 4448 3850 50  0000 C CNN
 F 1 "100n" V 4539 3850 50  0000 C CNN
 F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 4738 3700 50  0001 C CNN
@@ -171,9 +179,11 @@ Wire Wire Line
 Wire Wire Line
 	4925 3750 4475 3750
 $Comp
-L Device:L L1
+L incubator-rescue:L-Device L1
 U 1 1 5EDCF040
 P 5125 3750
+AR Path="/5EDCF040" Ref="L1"  Part="1" 
+AR Path="/61054A11/5EDCF040" Ref="L1"  Part="1" 
 F 0 "L1" V 5315 3750 50  0000 C CNN
 F 1 "4.7u" V 5224 3750 50  0000 C CNN
 F 2 "Inductor_SMD:L_Taiyo-Yuden_NR-40xx_HandSoldering" H 5125 3750 50  0001 C CNN
@@ -191,9 +201,11 @@ Wire Wire Line
 Wire Wire Line
 	5325 3950 4475 3950
 $Comp
-L Device:C C3
+L incubator-rescue:C-Device C3
 U 1 1 5EDD102F
 P 5450 3950
+AR Path="/5EDD102F" Ref="C3"  Part="1" 
+AR Path="/61054A11/5EDD102F" Ref="C3"  Part="1" 
 F 0 "C3" H 5335 3904 50  0000 R CNN
 F 1 "22u" H 5335 3995 50  0000 R CNN
 F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 5488 3800 50  0001 C CNN
@@ -221,9 +233,11 @@ Wire Wire Line
 	5925 3750 5800 3750
 Connection ~ 5450 3750
 $Comp
-L Device:C C4
+L incubator-rescue:C-Device C4
 U 1 1 5EDE0CF8
 P 5800 3950
+AR Path="/5EDE0CF8" Ref="C4"  Part="1" 
+AR Path="/61054A11/5EDE0CF8" Ref="C4"  Part="1" 
 F 0 "C4" H 5685 3904 50  0000 R CNN
 F 1 "22u" H 5685 3995 50  0000 R CNN
 F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 5838 3800 50  0001 C CNN
@@ -253,7 +267,7 @@ Connection ~ 3625 3750
 Text Notes 4175 3400 0    100  ~ 0
 5 V Buck
 $Comp
-L Regulator_Switching:AP63205WU U1
+L incubator-rescue:AP63205WU-Regulator_Switching U1
 U 1 1 6105F148
 P 4075 3850
 F 0 "U1" H 4075 4217 50  0000 C CNN
