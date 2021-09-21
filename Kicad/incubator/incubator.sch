@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 4
+Sheet 1 3
 Title "Incubator"
 Date "2021-07-26"
 Rev "0.1"
@@ -107,50 +107,6 @@ Wire Wire Line
 Wire Wire Line
 	4975 4100 5150 4100
 $Comp
-L incubator-rescue:MountingHole-Mechanical H5
-U 1 1 6110AD0D
-P 5025 7225
-F 0 "H5" H 5125 7271 50  0000 L CNN
-F 1 "MountingHole" H 5125 7180 50  0000 L CNN
-F 2 "MountingHole:MountingHole_4.5mm" H 5025 7225 50  0001 C CNN
-F 3 "~" H 5025 7225 50  0001 C CNN
-	1    5025 7225
-	1    0    0    -1  
-$EndComp
-$Comp
-L incubator-rescue:MountingHole-Mechanical H7
-U 1 1 6110B26F
-P 5800 7225
-F 0 "H7" H 5900 7271 50  0000 L CNN
-F 1 "MountingHole" H 5900 7180 50  0000 L CNN
-F 2 "MountingHole:MountingHole_4.5mm" H 5800 7225 50  0001 C CNN
-F 3 "~" H 5800 7225 50  0001 C CNN
-	1    5800 7225
-	1    0    0    -1  
-$EndComp
-$Comp
-L incubator-rescue:MountingHole-Mechanical H6
-U 1 1 6110B9C7
-P 5025 7500
-F 0 "H6" H 5125 7546 50  0000 L CNN
-F 1 "MountingHole" H 5125 7455 50  0000 L CNN
-F 2 "MountingHole:MountingHole_4.5mm" H 5025 7500 50  0001 C CNN
-F 3 "~" H 5025 7500 50  0001 C CNN
-	1    5025 7500
-	1    0    0    -1  
-$EndComp
-$Comp
-L incubator-rescue:MountingHole-Mechanical H8
-U 1 1 6110BE5B
-P 5800 7475
-F 0 "H8" H 5900 7521 50  0000 L CNN
-F 1 "MountingHole" H 5900 7430 50  0000 L CNN
-F 2 "MountingHole:MountingHole_4.5mm" H 5800 7475 50  0001 C CNN
-F 3 "~" H 5800 7475 50  0001 C CNN
-	1    5800 7475
-	1    0    0    -1  
-$EndComp
-$Comp
 L incubator-rescue:+12V-power #PWR0104
 U 1 1 61121502
 P 2700 925
@@ -177,15 +133,15 @@ Wire Wire Line
 $Comp
 L incubator-rescue:GND-power #PWR0109
 U 1 1 61068D10
-P 850 2150
-F 0 "#PWR0109" H 850 1900 50  0001 C CNN
-F 1 "GND" H 855 1977 50  0000 C CNN
-F 2 "" H 850 2150 50  0001 C CNN
-F 3 "" H 850 2150 50  0001 C CNN
-	1    850  2150
+P 1500 2550
+F 0 "#PWR0109" H 1500 2300 50  0001 C CNN
+F 1 "GND" H 1505 2377 50  0000 C CNN
+F 2 "" H 1500 2550 50  0001 C CNN
+F 3 "" H 1500 2550 50  0001 C CNN
+	1    1500 2550
 	1    0    0    -1  
 $EndComp
-Text GLabel 850  1950 0    50   Input ~ 0
+Text GLabel 900  2000 0    50   Input ~ 0
 12V
 Wire Wire Line
 	1150 3725 1150 3675
@@ -334,8 +290,6 @@ Text Notes 6425 1000 0    150  ~ 0
 LCD\n16X2
 Text Notes 3600 7000 0    50   ~ 0
 EXTERNAL HOLES
-Text Notes 5500 7000 0    50   ~ 0
-FAN HOLES
 Text Notes 4675 6850 0    102  ~ 0
 HOLES
 Wire Wire Line
@@ -567,7 +521,7 @@ F 3 "~" H 7600 3675 50  0001 C CNN
 	1    7600 3675
 	1    0    0    -1  
 $EndComp
-Text GLabel 2300 2000 2    50   Input ~ 0
+Text GLabel 2450 2000 2    50   Input ~ 0
 VIN
 Text GLabel 8050 3325 2    50   Input ~ 0
 ~RESET
@@ -597,12 +551,12 @@ RX
 $Comp
 L incubator-rescue:MBR0520LT-Diode D4
 U 1 1 61137931
-P 2050 2000
-F 0 "D4" H 2050 1783 50  0000 C CNN
-F 1 "MBR0520LT" H 2050 1874 50  0000 C CNN
-F 2 "Diode_SMD:D_SOD-123" H 2050 1825 50  0001 C CNN
-F 3 "http://www.onsemi.com/pub_link/Collateral/MBR0520LT1-D.PDF" H 2050 2000 50  0001 C CNN
-	1    2050 2000
+P 2200 2000
+F 0 "D4" H 2200 1783 50  0000 C CNN
+F 1 "MBR0520LT" H 2200 1874 50  0000 C CNN
+F 2 "Diode_SMD:D_SOD-123" H 2200 1825 50  0001 C CNN
+F 3 "http://www.onsemi.com/pub_link/Collateral/MBR0520LT1-D.PDF" H 2200 2000 50  0001 C CNN
+	1    2200 2000
 	-1   0    0    1   
 $EndComp
 $Comp
@@ -711,23 +665,221 @@ F 3 "~" H 5350 4225 50  0001 C CNN
 	1    5350 4225
 	1    0    0    -1  
 $EndComp
-$Sheet
-S 950  1700 850  600 
-U 614262A1
-F0 "5 V Step-down" 50
-F1 "5V.sch" 50
-F2 "VIN" I L 950 1950 50 
-F3 "5V" O R 1800 2000 50 
-F4 "GND" I L 950 2050 50 
-$EndSheet
 Wire Wire Line
-	850  2150 850  2050
+	2450 2000 2350 2000
+Text Notes 1050 5250 0    118  ~ 0
+Power LEDS
+$Comp
+L Device:R R?
+U 1 1 614D5797
+P 1700 5500
+AR Path="/5E0D7B92/614D5797" Ref="R?"  Part="1" 
+AR Path="/5E0D7D04/614D5797" Ref="R?"  Part="1" 
+AR Path="/614D5797" Ref="R3"  Part="1" 
+AR Path="/5E0005EE/614D5797" Ref="R?"  Part="1" 
+AR Path="/614262A1/614D5797" Ref="R?"  Part="1" 
+F 0 "R3" V 1625 5500 50  0000 C CNN
+F 1 "10k" V 1700 5500 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 1630 5500 50  0001 C CNN
+F 3 "~" H 1700 5500 50  0001 C CNN
+	1    1700 5500
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 614D579F
+P 1700 5800
+AR Path="/5E0D7B92/614D579F" Ref="R?"  Part="1" 
+AR Path="/5E0D7D04/614D579F" Ref="R?"  Part="1" 
+AR Path="/614D579F" Ref="R4"  Part="1" 
+AR Path="/5E0005EE/614D579F" Ref="R?"  Part="1" 
+AR Path="/614262A1/614D579F" Ref="R?"  Part="1" 
+F 0 "R4" V 1625 5800 50  0000 C CNN
+F 1 "1k" V 1700 5800 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 1630 5800 50  0001 C CNN
+F 3 "~" H 1700 5800 50  0001 C CNN
+	1    1700 5800
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED D?
+U 1 1 614D57B2
+P 1250 5500
+AR Path="/614262A1/614D57B2" Ref="D?"  Part="1" 
+AR Path="/614D57B2" Ref="D1"  Part="1" 
+F 0 "D1" H 1250 5425 50  0000 C CNN
+F 1 "GREEN" H 1250 5600 50  0000 C CNN
+F 2 "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 1250 5500 50  0001 C CNN
+F 3 "~" H 1250 5500 50  0001 C CNN
+	1    1250 5500
+	1    0    0    1   
+$EndComp
+$Comp
+L Device:LED D?
+U 1 1 614D57B8
+P 1250 5800
+AR Path="/614262A1/614D57B8" Ref="D?"  Part="1" 
+AR Path="/614D57B8" Ref="D2"  Part="1" 
+F 0 "D2" H 1250 5725 50  0000 C CNN
+F 1 "GREEN" H 1250 5900 50  0000 C CNN
+F 2 "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 1250 5800 50  0001 C CNN
+F 3 "~" H 1250 5800 50  0001 C CNN
+	1    1250 5800
+	1    0    0    1   
+$EndComp
+$Comp
+L Regulator_Linear:LM78M05_TO252 U1
+U 1 1 614D92CD
+P 1500 2000
+F 0 "U1" H 1500 2242 50  0000 C CNN
+F 1 "LM78M05_TO252" H 1500 2151 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:TO-252-2" H 1500 2225 50  0001 C CIN
+F 3 "https://www.onsemi.com/pub/Collateral/MC78M00-D.PDF" H 1500 1950 50  0001 C CNN
+	1    1500 2000
+	1    0    0    -1  
+$EndComp
+$Comp
+L incubator-rescue:C-Device C?
+U 1 1 614E5167
+P 1050 2250
+AR Path="/61116939/614E5167" Ref="C?"  Part="1" 
+AR Path="/614E5167" Ref="C1"  Part="1" 
+F 0 "C1" H 1165 2296 50  0000 L CNN
+F 1 "0.33u" H 1165 2205 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 1088 2100 50  0001 C CNN
+F 3 "~" H 1050 2250 50  0001 C CNN
+	1    1050 2250
+	1    0    0    -1  
+$EndComp
+$Comp
+L incubator-rescue:C-Device C?
+U 1 1 614E9E1C
+P 1900 2250
+AR Path="/61116939/614E9E1C" Ref="C?"  Part="1" 
+AR Path="/614E9E1C" Ref="C2"  Part="1" 
+F 0 "C2" H 2015 2296 50  0000 L CNN
+F 1 "100n" H 2015 2205 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 1938 2100 50  0001 C CNN
+F 3 "~" H 1900 2250 50  0001 C CNN
+	1    1900 2250
+	1    0    0    -1  
+$EndComp
 Wire Wire Line
-	850  2050 950  2050
+	1800 2000 1900 2000
 Wire Wire Line
-	850  1950 950  1950
+	1900 2100 1900 2000
+Connection ~ 1900 2000
 Wire Wire Line
-	2300 2000 2200 2000
+	1900 2000 2050 2000
 Wire Wire Line
-	1900 2000 1800 2000
+	1900 2400 1900 2450
+Wire Wire Line
+	1900 2450 1500 2450
+Wire Wire Line
+	1500 2450 1500 2300
+Wire Wire Line
+	1500 2550 1500 2450
+Connection ~ 1500 2450
+Wire Wire Line
+	900  2000 1050 2000
+Wire Wire Line
+	1050 2100 1050 2000
+Connection ~ 1050 2000
+Wire Wire Line
+	1050 2000 1200 2000
+Wire Wire Line
+	1050 2400 1050 2450
+Wire Wire Line
+	1050 2450 1500 2450
+Text GLabel 1950 5800 2    50   Input ~ 0
+VIN
+Text GLabel 1950 5500 2    50   Input ~ 0
+12V
+$Comp
+L incubator-rescue:GND-power #PWR01
+U 1 1 6152CEF6
+P 1000 5900
+F 0 "#PWR01" H 1000 5650 50  0001 C CNN
+F 1 "GND" H 1005 5727 50  0000 C CNN
+F 2 "" H 1000 5900 50  0001 C CNN
+F 3 "" H 1000 5900 50  0001 C CNN
+	1    1000 5900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1950 5500 1850 5500
+Wire Wire Line
+	1550 5500 1400 5500
+Wire Wire Line
+	1100 5500 1000 5500
+Wire Wire Line
+	1000 5500 1000 5800
+Wire Wire Line
+	1100 5800 1000 5800
+Connection ~ 1000 5800
+Wire Wire Line
+	1000 5800 1000 5900
+Wire Wire Line
+	1950 5800 1850 5800
+Wire Wire Line
+	1550 5800 1400 5800
+$Comp
+L Connector_Generic:Conn_02x03_Odd_Even J8
+U 1 1 61579775
+P 7150 4850
+F 0 "J8" H 7200 5167 50  0000 C CNN
+F 1 "Conn_02x03_Odd_Even" H 7200 5076 50  0000 C CNN
+F 2 "Connector:Tag-Connect_TC2030-IDC-NL_2x03_P1.27mm_Vertical" H 7150 4850 50  0001 C CNN
+F 3 "~" H 7150 4850 50  0001 C CNN
+	1    7150 4850
+	1    0    0    -1  
+$EndComp
+$Comp
+L incubator-rescue:MBR0520LT-Diode D3
+U 1 1 6157CF7A
+P 7950 4750
+F 0 "D3" H 7950 4533 50  0000 C CNN
+F 1 "MBR0520LT" H 7950 4624 50  0000 C CNN
+F 2 "Diode_SMD:D_SOD-123" H 7950 4575 50  0001 C CNN
+F 3 "http://www.onsemi.com/pub_link/Collateral/MBR0520LT1-D.PDF" H 7950 4750 50  0001 C CNN
+	1    7950 4750
+	-1   0    0    1   
+$EndComp
+Text GLabel 7600 4850 2    50   Input ~ 0
+MOSI
+$Comp
+L incubator-rescue:GND-power #PWR02
+U 1 1 6158A125
+P 7600 5050
+F 0 "#PWR02" H 7600 4800 50  0001 C CNN
+F 1 "GND" H 7605 4877 50  0000 C CNN
+F 2 "" H 7600 5050 50  0001 C CNN
+F 3 "" H 7600 5050 50  0001 C CNN
+	1    7600 5050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7450 4950 7600 4950
+Wire Wire Line
+	7600 4950 7600 5050
+Wire Wire Line
+	7600 4850 7450 4850
+Wire Wire Line
+	7450 4750 7800 4750
+Text GLabel 8250 4750 2    50   Input ~ 0
+VIN
+Wire Wire Line
+	8100 4750 8250 4750
+Text GLabel 6800 4750 0    50   Input ~ 0
+MISO
+Text GLabel 6800 4850 0    50   Input ~ 0
+SCK
+Text GLabel 6800 4950 0    50   Input ~ 0
+~RESET
+Wire Wire Line
+	6800 4750 6950 4750
+Wire Wire Line
+	6950 4850 6800 4850
+Wire Wire Line
+	6800 4950 6950 4950
 $EndSCHEMATC
