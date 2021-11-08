@@ -6,7 +6,7 @@ encoding utf-8
 Sheet 1 3
 Title "Incubator"
 Date "2021-07-26"
-Rev "0.1"
+Rev "0.2"
 Comp ""
 Comment1 ""
 Comment2 ""
@@ -378,7 +378,7 @@ F 3 "" H 3900 2950 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Sheet
-S 3975 950  975  1950
+S 3975 950  975  2250
 U 61116939
 F0 "ATMEGA328P" 50
 F1 "ATMEGA328P.sch" 50
@@ -402,6 +402,8 @@ F18 "VIN" I L 3975 1025 50
 F19 "MOSI" I R 4950 1025 50 
 F20 "MISO" I R 4950 1125 50 
 F21 "SCK" I R 4950 1225 50 
+F22 "B7" I R 4950 2975 50 
+F23 "B8" I R 4950 3075 50 
 $EndSheet
 Wire Wire Line
 	3900 1025 3975 1025
@@ -409,26 +411,6 @@ Wire Wire Line
 	3975 2825 3900 2825
 Wire Wire Line
 	3900 2825 3900 2950
-Text GLabel 6250 1325 0    50   Input ~ 0
-C3
-Text GLabel 6250 1650 0    50   Input ~ 0
-C1
-Text GLabel 6250 1750 0    50   Input ~ 0
-C0
-Text GLabel 7025 1325 2    50   Input ~ 0
-C2
-Text GLabel 7025 1425 2    50   Input ~ 0
-D2
-Text GLabel 7025 1525 2    50   Input ~ 0
-D3
-Text GLabel 7025 1625 2    50   Input ~ 0
-D4
-Text GLabel 7025 1775 2    50   Input ~ 0
-D6
-Text GLabel 7025 1875 2    50   Input ~ 0
-D5
-Text GLabel 7025 1975 2    50   Input ~ 0
-D7
 $Comp
 L incubator-rescue:GND-power #PWR0114
 U 1 1 611DEBA3
@@ -466,25 +448,6 @@ Wire Wire Line
 	7025 1425 6925 1425
 Wire Wire Line
 	6925 1525 7025 1525
-$Sheet
-S 6375 1250 550  800 
-U 611AEB1E
-F0 "LCD 16x2 and Rotary Encoder" 50
-F1 "LCD_16x2.sch" 50
-F2 "D4" I R 6925 1325 50 
-F3 "D5" I R 6925 1425 50 
-F4 "D6" I R 6925 1525 50 
-F5 "D7" I R 6925 1625 50 
-F6 "GND" I L 6375 1975 50 
-F7 "C0" I R 6925 1775 50 
-F8 "C1" I R 6925 1875 50 
-F9 "C2" I R 6925 1975 50 
-F10 "E" I L 6375 1650 50 
-F11 "RS" I L 6375 1750 50 
-F12 "VDD" I L 6375 1325 50 
-F13 "LED+" I L 6375 1425 50 
-F14 "V0" I L 6375 1525 50 
-$EndSheet
 Wire Wire Line
 	6925 1775 7025 1775
 Wire Wire Line
@@ -510,43 +473,24 @@ F 3 "~" H 1325 885 50  0001 C CNN
 	1    1275 925 
 	1    0    0    -1  
 $EndComp
-$Comp
-L incubator-rescue:Conn_01x06-Connector_Generic J2
-U 1 1 610D151B
-P 7600 3675
-F 0 "J2" H 7680 3667 50  0000 L CNN
-F 1 "Conn_01x06" H 7425 3275 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical" H 7600 3675 50  0001 C CNN
-F 3 "~" H 7600 3675 50  0001 C CNN
-	1    7600 3675
-	1    0    0    -1  
-$EndComp
 Text GLabel 2450 2000 2    50   Input ~ 0
 VIN
-Text GLabel 8050 3325 2    50   Input ~ 0
+Text GLabel 8150 3300 2    50   Input ~ 0
 ~RESET
-Text GLabel 7275 3575 0    50   Input ~ 0
+Text GLabel 7250 3550 0    50   Input ~ 0
 TX
 $Comp
 L incubator-rescue:GND-power #PWR0103
 U 1 1 610EBE3F
-P 7325 4050
-F 0 "#PWR0103" H 7325 3800 50  0001 C CNN
-F 1 "GND" H 7330 3877 50  0000 C CNN
-F 2 "" H 7325 4050 50  0001 C CNN
-F 3 "" H 7325 4050 50  0001 C CNN
-	1    7325 4050
+P 7300 4050
+F 0 "#PWR0103" H 7300 3800 50  0001 C CNN
+F 1 "GND" H 7305 3877 50  0000 C CNN
+F 2 "" H 7300 4050 50  0001 C CNN
+F 3 "" H 7300 4050 50  0001 C CNN
+	1    7300 4050
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	7400 3575 7275 3575
-Wire Wire Line
-	7275 3675 7400 3675
-Wire Wire Line
-	7400 3975 7325 3975
-Wire Wire Line
-	7325 3975 7325 4050
-Text GLabel 7275 3675 0    50   Input ~ 0
+Text GLabel 7250 3650 0    50   Input ~ 0
 RX
 $Comp
 L incubator-rescue:MBR0520LT-Diode D4
@@ -562,46 +506,18 @@ $EndComp
 $Comp
 L incubator-rescue:C-Device C?
 U 1 1 61154027
-P 7900 3525
+P 7900 3300
 AR Path="/61116939/61154027" Ref="C?"  Part="1" 
 AR Path="/61154027" Ref="C7"  Part="1" 
-F 0 "C7" H 8015 3571 50  0000 L CNN
-F 1 "100n" H 8015 3480 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 7938 3375 50  0001 C CNN
-F 3 "~" H 7900 3525 50  0001 C CNN
-	1    7900 3525
-	1    0    0    -1  
+F 0 "C7" H 8015 3346 50  0000 L CNN
+F 1 "100n" H 8015 3255 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 7938 3150 50  0001 C CNN
+F 3 "~" H 7900 3300 50  0001 C CNN
+	1    7900 3300
+	0    1    1    0   
 $EndComp
-Wire Wire Line
-	7100 3775 7400 3775
-Wire Wire Line
-	6800 3775 6700 3775
-Text GLabel 6700 3775 0    50   Input ~ 0
+Text GLabel 6700 3750 0    50   Input ~ 0
 VIN
-Wire Wire Line
-	7400 3475 7325 3475
-Wire Wire Line
-	7325 3475 7325 3325
-Wire Wire Line
-	7325 3325 7900 3325
-$Comp
-L incubator-rescue:GND-power #PWR0106
-U 1 1 6117A969
-P 7900 3775
-F 0 "#PWR0106" H 7900 3525 50  0001 C CNN
-F 1 "GND" H 7905 3602 50  0000 C CNN
-F 2 "" H 7900 3775 50  0001 C CNN
-F 3 "" H 7900 3775 50  0001 C CNN
-	1    7900 3775
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	7900 3775 7900 3675
-Wire Wire Line
-	7900 3375 7900 3325
-Connection ~ 7900 3325
-Wire Wire Line
-	7900 3325 8050 3325
 Text GLabel 1725 825  2    50   Input ~ 0
 12V
 Wire Wire Line
@@ -612,15 +528,14 @@ Wire Wire Line
 $Comp
 L incubator-rescue:MBR0520LT-Diode D5
 U 1 1 61109529
-P 6950 3775
-F 0 "D5" H 6950 3558 50  0000 C CNN
-F 1 "MBR0520LT" H 6800 3650 50  0000 C CNN
-F 2 "Diode_SMD:D_SOD-123" H 6950 3600 50  0001 C CNN
-F 3 "http://www.onsemi.com/pub_link/Collateral/MBR0520LT1-D.PDF" H 6950 3775 50  0001 C CNN
-	1    6950 3775
+P 6950 3750
+F 0 "D5" H 6950 3533 50  0000 C CNN
+F 1 "MBR0520LT" H 6800 3625 50  0000 C CNN
+F 2 "Diode_SMD:D_SOD-123" H 6950 3575 50  0001 C CNN
+F 3 "http://www.onsemi.com/pub_link/Collateral/MBR0520LT1-D.PDF" H 6950 3750 50  0001 C CNN
+	1    6950 3750
 	1    0    0    -1  
 $EndComp
-NoConn ~ 7400 3875
 $Comp
 L incubator-rescue:Conn_01x01-Connector_Generic J3
 U 1 1 6124B8B1
@@ -708,7 +623,7 @@ P 1250 5500
 AR Path="/614262A1/614D57B2" Ref="D?"  Part="1" 
 AR Path="/614D57B2" Ref="D1"  Part="1" 
 F 0 "D1" H 1250 5425 50  0000 C CNN
-F 1 "GREEN" H 1250 5600 50  0000 C CNN
+F 1 "RED" H 1250 5600 50  0000 C CNN
 F 2 "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 1250 5500 50  0001 C CNN
 F 3 "~" H 1250 5500 50  0001 C CNN
 	1    1250 5500
@@ -721,7 +636,7 @@ P 1250 5800
 AR Path="/614262A1/614D57B8" Ref="D?"  Part="1" 
 AR Path="/614D57B8" Ref="D2"  Part="1" 
 F 0 "D2" H 1250 5725 50  0000 C CNN
-F 1 "GREEN" H 1250 5900 50  0000 C CNN
+F 1 "RED" H 1250 5900 50  0000 C CNN
 F 2 "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 1250 5800 50  0001 C CNN
 F 3 "~" H 1250 5800 50  0001 C CNN
 	1    1250 5800
@@ -882,4 +797,173 @@ Wire Wire Line
 	6950 4850 6800 4850
 Wire Wire Line
 	6800 4950 6950 4950
+$Comp
+L incubator-rescue:Conn_01x06-Connector_Generic J2
+U 1 1 610D151B
+P 7600 3650
+F 0 "J2" H 7680 3642 50  0000 L CNN
+F 1 "Conn_01x06" H 7425 3250 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical" H 7600 3650 50  0001 C CNN
+F 3 "~" H 7600 3650 50  0001 C CNN
+	1    7600 3650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7750 3300 7250 3300
+Wire Wire Line
+	7250 3300 7250 3450
+Wire Wire Line
+	7250 3450 7400 3450
+Wire Wire Line
+	8050 3300 8150 3300
+Wire Wire Line
+	6700 3750 6800 3750
+Wire Wire Line
+	7100 3750 7400 3750
+NoConn ~ 7400 3850
+Wire Wire Line
+	7400 3950 7300 3950
+Wire Wire Line
+	7300 3950 7300 4050
+Wire Wire Line
+	7250 3650 7400 3650
+Wire Wire Line
+	7400 3550 7250 3550
+Text GLabel 6250 1750 0    50   Input ~ 0
+C0
+Text GLabel 6250 1650 0    50   Input ~ 0
+C1
+Text GLabel 6250 1325 0    50   Input ~ 0
+C3
+Text GLabel 7025 1625 2    50   Input ~ 0
+D4
+Text GLabel 7025 1525 2    50   Input ~ 0
+D3
+Text GLabel 7025 1425 2    50   Input ~ 0
+D2
+Text GLabel 7025 1325 2    50   Input ~ 0
+C2
+Text GLabel 7025 1975 2    50   Input ~ 0
+D7
+Text GLabel 7025 1875 2    50   Input ~ 0
+D5
+Text GLabel 7025 1775 2    50   Input ~ 0
+D6
+$Sheet
+S 6375 1250 550  800 
+U 611AEB1E
+F0 "LCD 16x2 and Rotary Encoder" 50
+F1 "LCD_16x2.sch" 50
+F2 "D4" I R 6925 1325 50 
+F3 "D5" I R 6925 1425 50 
+F4 "D6" I R 6925 1525 50 
+F5 "D7" I R 6925 1625 50 
+F6 "GND" I L 6375 1975 50 
+F7 "A" I R 6925 1775 50 
+F8 "B" I R 6925 1875 50 
+F9 "S1" I R 6925 1975 50 
+F10 "E" I L 6375 1650 50 
+F11 "RS" I L 6375 1750 50 
+F12 "VDD" I L 6375 1325 50 
+F13 "LED+" I L 6375 1425 50 
+F14 "V0" I L 6375 1525 50 
+$EndSheet
+$Comp
+L Device:R R?
+U 1 1 6193BEE6
+P 4250 5725
+AR Path="/5E0D7B92/6193BEE6" Ref="R?"  Part="1" 
+AR Path="/5E0D7D04/6193BEE6" Ref="R?"  Part="1" 
+AR Path="/6193BEE6" Ref="R10"  Part="1" 
+AR Path="/5E0005EE/6193BEE6" Ref="R?"  Part="1" 
+AR Path="/614262A1/6193BEE6" Ref="R?"  Part="1" 
+F 0 "R10" V 4175 5725 50  0000 C CNN
+F 1 "1k" V 4250 5725 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 4180 5725 50  0001 C CNN
+F 3 "~" H 4250 5725 50  0001 C CNN
+	1    4250 5725
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:LED D?
+U 1 1 6193C98D
+P 4650 5725
+AR Path="/614262A1/6193C98D" Ref="D?"  Part="1" 
+AR Path="/6193C98D" Ref="D7"  Part="1" 
+F 0 "D7" H 4650 5650 50  0000 C CNN
+F 1 "GREEN" H 4650 5825 50  0000 C CNN
+F 2 "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 4650 5725 50  0001 C CNN
+F 3 "~" H 4650 5725 50  0001 C CNN
+	1    4650 5725
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 6193CDAE
+P 4250 5475
+AR Path="/5E0D7B92/6193CDAE" Ref="R?"  Part="1" 
+AR Path="/5E0D7D04/6193CDAE" Ref="R?"  Part="1" 
+AR Path="/6193CDAE" Ref="R9"  Part="1" 
+AR Path="/5E0005EE/6193CDAE" Ref="R?"  Part="1" 
+AR Path="/614262A1/6193CDAE" Ref="R?"  Part="1" 
+F 0 "R9" V 4175 5475 50  0000 C CNN
+F 1 "1k" V 4250 5475 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 4180 5475 50  0001 C CNN
+F 3 "~" H 4250 5475 50  0001 C CNN
+	1    4250 5475
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:LED D?
+U 1 1 6193D088
+P 4650 5475
+AR Path="/614262A1/6193D088" Ref="D?"  Part="1" 
+AR Path="/6193D088" Ref="D6"  Part="1" 
+F 0 "D6" H 4650 5400 50  0000 C CNN
+F 1 "GREEN" H 4650 5575 50  0000 C CNN
+F 2 "LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 4650 5475 50  0001 C CNN
+F 3 "~" H 4650 5475 50  0001 C CNN
+	1    4650 5475
+	-1   0    0    -1  
+$EndComp
+Text GLabel 5025 2975 2    50   Input ~ 0
+ERROR
+Text GLabel 5025 3075 2    50   Input ~ 0
+MONITORING
+Wire Wire Line
+	4950 2975 5025 2975
+Wire Wire Line
+	5025 3075 4950 3075
+Text GLabel 4000 5475 0    50   Input ~ 0
+ERROR
+Text GLabel 4000 5725 0    50   Input ~ 0
+MONITORING
+Wire Wire Line
+	4100 5725 4000 5725
+Wire Wire Line
+	4400 5725 4500 5725
+$Comp
+L incubator-rescue:GND-power #PWR0106
+U 1 1 6196DBDC
+P 4925 5875
+F 0 "#PWR0106" H 4925 5625 50  0001 C CNN
+F 1 "GND" H 4930 5702 50  0000 C CNN
+F 2 "" H 4925 5875 50  0001 C CNN
+F 3 "" H 4925 5875 50  0001 C CNN
+	1    4925 5875
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4800 5725 4925 5725
+Connection ~ 4925 5725
+Wire Wire Line
+	4925 5725 4925 5875
+Wire Wire Line
+	4000 5475 4100 5475
+Wire Wire Line
+	4400 5475 4500 5475
+Wire Wire Line
+	4800 5475 4925 5475
+Wire Wire Line
+	4925 5475 4925 5725
 $EndSCHEMATC

@@ -18,43 +18,41 @@ NoConn ~ 5000 3775
 NoConn ~ 5000 3875
 NoConn ~ 5000 3975
 Wire Wire Line
-	6200 4450 6000 4450
+	6350 4600 6150 4600
 Wire Wire Line
-	6200 4650 6000 4650
+	6350 4800 6150 4800
 Wire Wire Line
-	6875 4650 6800 4650
+	7025 4800 6950 4800
 Wire Wire Line
-	6875 4750 6875 4650
+	7025 4900 7025 4800
 $Comp
 L incubator-rescue:GND-power #PWR?
 U 1 1 611BC109
-P 6875 4750
+P 7025 4900
 AR Path="/611BC109" Ref="#PWR?"  Part="1" 
 AR Path="/611AEB1E/611BC109" Ref="#PWR0120"  Part="1" 
-F 0 "#PWR0120" H 6875 4500 50  0001 C CNN
-F 1 "GND" H 6880 4577 50  0000 C CNN
-F 2 "" H 6875 4750 50  0001 C CNN
-F 3 "" H 6875 4750 50  0001 C CNN
-	1    6875 4750
+F 0 "#PWR0120" H 7025 4650 50  0001 C CNN
+F 1 "GND" H 7030 4727 50  0000 C CNN
+F 2 "" H 7025 4900 50  0001 C CNN
+F 3 "" H 7025 4900 50  0001 C CNN
+	1    7025 4900
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	6900 4450 6800 4450
+	6275 4700 6275 4900
 Wire Wire Line
-	6125 4550 6125 4750
-Wire Wire Line
-	6200 4550 6125 4550
+	6350 4700 6275 4700
 $Comp
 L incubator-rescue:GND-power #PWR?
 U 1 1 611BC115
-P 6125 4750
+P 6275 4900
 AR Path="/611BC115" Ref="#PWR?"  Part="1" 
 AR Path="/611AEB1E/611BC115" Ref="#PWR0121"  Part="1" 
-F 0 "#PWR0121" H 6125 4500 50  0001 C CNN
-F 1 "GND" H 6130 4577 50  0000 C CNN
-F 2 "" H 6125 4750 50  0001 C CNN
-F 3 "" H 6125 4750 50  0001 C CNN
-	1    6125 4750
+F 0 "#PWR0121" H 6275 4650 50  0001 C CNN
+F 1 "GND" H 6280 4727 50  0000 C CNN
+F 2 "" H 6275 4900 50  0001 C CNN
+F 3 "" H 6275 4900 50  0001 C CNN
+	1    6275 4900
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -187,14 +185,14 @@ $EndComp
 $Comp
 L incubator-rescue:Rotary_Encoder_Switch-Device SW?
 U 1 1 611BC160
-P 6500 4550
+P 6650 4700
 AR Path="/611BC160" Ref="SW?"  Part="1" 
 AR Path="/611AEB1E/611BC160" Ref="SW2"  Part="1" 
-F 0 "SW2" H 6500 4917 50  0000 C CNN
-F 1 "Rotary_Encoder_Switch" H 6500 4826 50  0000 C CNN
-F 2 "Rotary_Encoder:RotaryEncoder_Alps_EC11E-Switch_Vertical_H20mm" H 6350 4710 50  0001 C CNN
-F 3 "~" H 6500 4810 50  0001 C CNN
-	1    6500 4550
+F 0 "SW2" H 6650 5067 50  0000 C CNN
+F 1 "Rotary_Encoder_Switch" H 6650 4976 50  0000 C CNN
+F 2 "Rotary_Encoder:RotaryEncoder_Alps_EC11E-Switch_Vertical_H20mm" H 6500 4860 50  0001 C CNN
+F 3 "~" H 6650 4960 50  0001 C CNN
+	1    6650 4700
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -244,16 +242,18 @@ Wire Wire Line
 Connection ~ 5400 4625
 Wire Wire Line
 	5400 4625 5400 4575
-Text HLabel 6000 4450 0    50   Input ~ 0
-C0
-Text HLabel 6000 4650 0    50   Input ~ 0
-C1
-Text HLabel 6900 4450 2    50   Input ~ 0
-C2
+Text HLabel 6150 4800 0    50   Input ~ 0
+B
 Text HLabel 5400 2875 1    50   Input ~ 0
 VDD
 Text HLabel 6275 3475 2    50   Input ~ 0
 LED+
 Text HLabel 6825 2525 1    50   Input ~ 0
 V0
+Text HLabel 6150 4600 0    50   Input ~ 0
+A
+Wire Wire Line
+	7050 4600 6950 4600
+Text HLabel 7050 4600 2    50   Input ~ 0
+S1
 $EndSCHEMATC
