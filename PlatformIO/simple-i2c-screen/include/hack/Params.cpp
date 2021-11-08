@@ -61,7 +61,7 @@ void saveParameters() {
     #ifdef THR_EEPROM_LOGGER
     writeLog();
     #else
-    writeLog(EVENT_SAVE_ALL_PARAMETER, 0);
+    //writeLog(EVENT_SAVE_ALL_PARAMETER, 0);
     #endif
   #endif
 }
@@ -75,7 +75,7 @@ void setAndSaveParameter(uint8_t number, int value) {
   //The address of the parameter is given by : EE_START_PARAM+number*2
   eeprom_write_word((uint16_t*) EE_START_PARAM + number, value);
   #ifdef EVENT_LOGGING
-    writeLog(EVENT_PARAMETER_SET + number, value);
+    //writeLog(EVENT_PARAMETER_SET + number, value);
   #endif
 }
 
@@ -84,14 +84,14 @@ bool saveAndLogError(boolean isError, uint8_t errorFlag) {
   if (isError) {
     if (setParameterBit(PARAM_ERROR, errorFlag)) { // the status has changed
       #ifdef EVENT_LOGGING
-        writeLog(EVENT_ERROR_FAILED, errorFlag);
+        //writeLog(EVENT_ERROR_FAILED, errorFlag);
       #endif
       return true;
     }
   } else {
     if (clearParameterBit(PARAM_ERROR, errorFlag)) { // the status has changed
       #ifdef EVENT_LOGGING
-        writeLog(EVENT_ERROR_RECOVER, errorFlag);
+        //writeLog(EVENT_ERROR_RECOVER, errorFlag);
       #endif
       return true;
     }

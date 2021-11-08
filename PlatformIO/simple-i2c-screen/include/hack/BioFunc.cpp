@@ -1,6 +1,5 @@
 #include "BioParams.h"
 #include "Params.h"
-#include "A_Parameters.h"
 
 void resetParameters() {
   setAndSaveParameter(PARAM_TEMP_TARGET, 2000);
@@ -25,9 +24,9 @@ void resetParameters() {
   formatLog();
 #endif
 
-  setQualifier(21313);
-}
 
+  //setQualifier(21313);
+}
 
 void checkParameters()
 {

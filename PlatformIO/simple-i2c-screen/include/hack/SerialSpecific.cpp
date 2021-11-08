@@ -8,16 +8,6 @@
 #include "BioOneWire.h"
 #include "Weight.h"
 
-#if FLASH_SELECT == 10 //Flash SS_SPI
-SST sst = SST('B', 6); //D10 is PORT B - 6
-#endif
-#if FLASH_SELECT == 1 //Flash SS_SPI
-SST sst2 = SST('D', 3); //TX is PORT D - 3
-#endif
-#if FLASH_SELECT == A3 //Flash SS_SPI
-SST sst = SST('F', 4); // A3 is PORT F - 4
-#endif
-
 void printGeneralParameters( Print* output ) {
   output->print(F("EPOCH:"));
   output->println(now());

@@ -29,7 +29,7 @@ bool startProcess(byte statusFlag) {
   boolean statusChanged = setParameterBit(PARAM_STATUS, statusFlag);
 #ifdef EVENT_LOGGING
   if (statusChanged) {
-    writeLog(EVENT_STATUS_ENABLE, statusFlag);
+    //writeLog(EVENT_STATUS_ENABLE, statusFlag);
   }
 #endif
   return statusChanged;
@@ -39,7 +39,7 @@ bool stopProcess(uint8_t statusFlag) {
   bool statusChanged =  clearParameterBit(PARAM_STATUS, statusFlag);
 #ifdef EVENT_LOGGING
   if (statusChanged) {
-    writeLog(EVENT_STATUS_DISABLE, statusFlag);
+    //writeLog(EVENT_STATUS_DISABLE, statusFlag);
   }
 #endif
   return statusChanged;
