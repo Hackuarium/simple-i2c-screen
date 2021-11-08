@@ -1,0 +1,62 @@
+#include <Arduino.h>
+#include <ChNil.h>
+
+#include "PID_v1.h"
+
+#define PID_OUTPUT_LIMIT 255
+
+void pid_ctrl();
+
+double heatingRegInput;
+double heatingRegOutput;
+double heatingRegSetpoint;
+PID heatingRegPID(&heatingRegInput, &heatingRegOutput, &heatingRegSetpoint, 1, 0.0002, 5, DIRECT);
+
+THD_FUNCTION(ThreadPID, arg) {
+
+  heatingRegPID.SetOutputLimits(0, PID_OUTPUT_LIMIT);
+  heatingRegPID.SetMode(AUTOMATIC);      //turn the PID on, cf. PID library
+  heatingRegPID.SetSampleTime(950);      //set PID sampling time to 90ms
+
+  pinMode(FAN_EXTERNAL, OUTPUT);
+  pinMode(FAN_INTERNAL, OUTPUT);
+  pinMode(HBRIDGE_IN1, OUTPUT);
+  pinMode(HBRIDGE_IN2, OUTPUT);
+  pinMode(HBRIDGE_INH, OUTPUT);
+
+
+  while (true) {
+    if (isError() || getParameter(PARAM_STATE) != STATE_CONSTANT) {
+      digitalWrite(FAN_EXTERNAL, LOW);
+      digitalWrite(FAN_INTERNAL, LOW);
+      digitalWrite(HBRIDGE_INH, LOW);
+    } else {
+      if ( getParameterBit(PARAM_ENABLED, FLAG_FAN_EXTERNAL_CONTROL)) {
+        analogWrite(FAN_EXTERNAL, getParameter(PARAM_FAN_EXTERNAL));
+      } else {
+        digitalWrite(FAN_EXTERNAL, LOW);
+      }
+      if ( getParameterBit(PARAM_ENABLED, FLAG_FAN_INTERNAL_CONTROL)) {
+        analogWrite(FAN_INTERNAL, getParameter(PARAM_FAN_INTERNAL));
+      } else {
+        digitalWrite(FAN_INTERNAL, LOW);
+      }
+
+
+
+      if ( getParameterBit(PARAM_ENABLED, FLAG_PID_CONTROL)) {
+        digitalWrite(HBRIDGE_INH, HIGH);
+
+        heatingRegInput = (getParameter(PARAM_TEMP_EXT_1) + getParameter(PARAM_TEMP_EXT_2)) / 2;
+        heatingRegSetpoint = getParameter(PARAM_TEMP_TARGET);
+        heatingRegPID.Compute();    // the computation takes only 30ms!
+
+        setParameter(PARAM_HBRIDGE_PID, heatingRegOutput);
+        analogWrite(HBRIDGE_IN1, heatingRegOutput);
+      } else {
+        digitalWrite(HBRIDGE_INH, LOW);
+      }
+    }
+    nilThdSleepMilliseconds(500);
+  }
+}
