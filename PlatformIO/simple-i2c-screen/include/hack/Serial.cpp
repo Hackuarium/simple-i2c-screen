@@ -8,6 +8,11 @@
 
 #ifdef THR_SERIAL
 
+#ifdef THR_WIRE_MASTER
+  #include "../BioI2C.h"
+  //#include "WireMasterCh.h"
+#endif
+
 char serialBuffer[SERIAL_BUFFER_LENGTH];
 uint8_t serialBufferPosition = 0;
 
@@ -18,13 +23,12 @@ void printHelp(Print* output) {
   #ifdef THR_WIRE_MASTER
   output->println(F("(i)2c"));
   #endif
-    #ifdef THR_EEPROM_LOGGER
+  #ifdef THR_EEPROM_LOGGER
   output->println(F("(l)og"));
   #endif
   output->println(F("(s)ettings"));
   
   output->println(F("(u)tilities"));
-
 
   printSpecificHelp(output);
 }

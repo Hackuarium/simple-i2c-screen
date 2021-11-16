@@ -18,23 +18,17 @@
   THREADS
 *******************************/
 
-// #define THR_WIRE_MASTER 1
-//#define THR_SST_LOGGER  1
+#define THR_WIRE_MASTER 1
 #define THR_SERIAL      1
-//#define THR_ONEWIRE     1
-//#define THR_PID         1
-#define THR_FAN         1
 //#define THR_ERROR       1
-//#define THR_STEPPER     1
-//#define THR_STEPS       1
-//#define THR_WEIGHT      1
-//#define THR_OUTPUTS     1
 //#define THR_MONITORING  1
-
-
+#define THR_LCD 1
+#define THR_ERROR 50 // define the pin to blink if there is an error
 
 #define NB_PARAMETERS_LINEAR_LOGS  26
 
+#define OUT_ERROR 20
+#define MONITORING_LED 21
 
 // Definition of all events to be logged
 #define EVENT_ARDUINO_BOOT              1
@@ -57,23 +51,6 @@
 //When parameters are set (and saved) an event is recorded (256-281 : A-Z + .... (if more parameters than 262 ...)
 #define EVENT_PARAMETER_SET          256
 
-// MONITORING Thread
-#define MONITORING_LED  13
-
-// FAN Thread
-#define OUT_FAN            11
-#define TEMP_FAN_ON        3500
-
-// ERROR Thread
-#define OUT_ERROR          A4
-
-// ONE WIRE Thread
-#define TEMP_EXT1          7
-#define TEMP_EXT2          A5
-#define TEMP_PCB           A2
-
-// PID Thread
-#define PID_CONTROL        6
 
 // EEPROM || SST Thread
 #define EVENT_LOGGING  1
@@ -105,14 +82,6 @@
 #define PARAM_WEIGHT_MIN              8  // I
 #define PARAM_WEIGHT_MAX              9  // J
 
-#define PARAM_STEPPER_SPEED        26   // AA - motor speed, in RPM
-#define PARAM_STEPPER_SECONDS      27   // AB   number of seconds before changing direction
-#define PARAM_STEPPER_WAIT         28   // AC   wait time in seconds between change of direction
-#define PARAM_WEIGHT_FACTOR          29  // AD - Weight calibration: conversion factor digital -> gr (weight=FACTOR*dig_unit)
-#define PARAM_WEIGHT_OFFSET          30  // AE - Weight calibration: digital offset value when bioreactor is empty
-#define PARAM_SEDIMENTATION_TIME     31  // AF - Number of minutes to wait without rotation before emptying
-#define PARAM_FILLED_TIME            32  //AG - Number of minutes to stay in the filled state
-
 #define PARAM_CURRENT_STEP           22
 #define PARAM_CURRENT_WAIT_TIME      23
 // 36-51 is used by the 16 allowed step
@@ -134,32 +103,6 @@
 #define FLAG_TEMP_EXT2_RANGE_ERROR      5   // temperature of liquid is outside range
 #define FLAG_TEMP_TARGET_RANGE_ERROR    6   // target temperature is outside range
 #define MASK_TEMP_ERROR                 0b01111111  // where are the bit for temperature error
-
-#define FLAG_WEIGHT_RANGE_ERROR         7   // the weight is outside range
-#define MASK_WEIGHT_ERROR               0b10000000  // where are the bit for weight error
-
-#define PARAM_ENABLED            25  // Z - enabled service (set by user)
-#define PARAM_STATUS             51  // AZ - currently active service
-
-// the following flags are defined for PARAM_STATUS and PARAM_ENABLED
-#define FLAG_PID_CONTROL         0   //0 to stop PID
-#define FLAG_STEPPER_CONTROL     1   //0 to stop engine
-#define FLAG_OUTPUT_1            2
-#define FLAG_OUTPUT_2            3
-#define FLAG_OUTPUT_3            4
-#define FLAG_OUTPUT_4            5
-
-// PARAM_STATUS
-#define FLAG_FOOD_CONTROL         2
-#define FLAG_PH_CONTROL           3
-#define FLAG_GAS_CONTROL          4
-#define FLAG_SEDIMENTATION        5
-#define FLAG_RELAY_FILLING        6
-#define FLAG_RELAY_EMPTYING       7
-#define FLAG_PH_CALIBRATE         8
-#define FLAG_RELAY_ACID           9
-#define FLAG_RELAY_BASE           10
-#define FLAG_WAITING_TIME_HOURS   11
 
 
 // value that should not be taken into account
@@ -190,7 +133,7 @@
 #define SERIAL_BUFFER_LENGTH           32
 #define SERIAL_MAX_PARAM_VALUE_LENGTH  32
 
-// setting ATmega32U4 as I2C slave.
+// Setting ATmega328 as I2C master.
 #ifndef I2C_HARDWARE
 #define I2C_HARDWARE 1
 #endif
@@ -221,42 +164,13 @@
 // Incubator project
 
 //#define THR_EEPROM_LOGGER 1
-#define THR_LCD 1
+
 #define NUMBER_PARAMETERS_TO_LOG 6  // defines the number of parameters to log
 // allowed values: 1, 2, 3, 4, 6, 8, 10, 14
 // 2 first entries in the log will be logID and secodns between
 #define LOG_INTERVAL 900   // we log every 15 minutes
 // we can store 60 entries in the log
 
-#define TEMPERATURE_EXT_1    50
-#define TEMPERATURE_EXT_2    50
-#define TEMPERATURE_PCB      50
-#define FAN_EXTERNAL         50
-#define FAN_INTERNAL         50
-
-#define THR_ERROR 50 // define the pin to blink if there is an error
-
-
-
-#define MAX_PARAM       26
-
-#define PARAM_TEMP_EXT_1    0
-#define PARAM_TEMP_EXT_2    1
-#define PARAM_TEMP_TARGET   2
-#define PARAM_HBRIDGE_PID   3
-
-#define PARAM_FAN_EXTERNAL  4
-#define PARAM_FAN_INTERNAL  5
-
-#define PARAM_TEMP_PCB      8
-
-
-#define PARAM_TEMP_TARGET_1  10
-#define PARAM_TIME_1         11
-#define PARAM_TEMP_TARGET_2  12
-#define PARAM_TIME_2         13
-#define PARAM_TEMP_TARGET_3  14
-#define PARAM_TIME_3         15
 
 
 #define PARAM_FLAGS           17
@@ -274,19 +188,26 @@
 /******************
    FLAG DEFINITION
  ******************/
-#define PARAM_ENABLED      23
-#define FLAG_FAN_EXTERNAL_CONTROL     0
-#define FLAG_FAN_INTERNAL_CONTROL     1
-#define FLAG_PID_CONTROL              2
+#define PARAM_ENABLED            25  // Z - enabled service (set by user)
+#define PARAM_STATUS             51  // AZ - currently active service
 
-#define PARAM_ERROR        24
-#define FLAG_TEMP_PCB_PROBE_ERROR        0   // pcb probe failed (one wire not answering)
-#define FLAG_TEMP_EXT_1_PROBE_ERROR      1   // ext probe 1 failed (one wire not answering)
-#define FLAG_TEMP_EXT_2_PROBE_ERROR      2   // ext probe 2 failed (one wire not answering)
+// the following flags are defined for PARAM_STATUS and PARAM_ENABLED
+#define FLAG_PID_CONTROL         0   //0 to stop PID
+#define FLAG_STEPPER_CONTROL     1   //0 to stop engine
+#define FLAG_OUTPUT_1            2
+#define FLAG_OUTPUT_2            3
+#define FLAG_OUTPUT_3            4
+#define FLAG_OUTPUT_4            5
 
-#define FLAG_TEMP_PCB_RANGE_ERROR        3   // temperature of pcb is outside range
-#define FLAG_TEMP_EXT_1_RANGE_ERROR      4   // temperature of liquid is outside range
-#define FLAG_TEMP_EXT_2_RANGE_ERROR      5   // temperature of liquid is outside range
-#define FLAG_TEMP_TARGET_RANGE_ERROR     6   // target temperature is outside range
+// PARAM_STATUS
+#define FLAG_FOOD_CONTROL         2
+#define FLAG_PH_CONTROL           3
+#define FLAG_GAS_CONTROL          4
+#define FLAG_SEDIMENTATION        5
+#define FLAG_RELAY_FILLING        6
+#define FLAG_RELAY_EMPTYING       7
+#define FLAG_PH_CALIBRATE         8
+#define FLAG_RELAY_ACID           9
+#define FLAG_RELAY_BASE           10
+#define FLAG_WAITING_TIME_HOURS   11
 
-#define PARAM_STATUS             25  // current status

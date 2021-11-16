@@ -4,8 +4,8 @@
 #include "BioParams.h"
 #include "Params.h"
 
-// setting ATmega32U4 as I2C slave.
-#ifdef THR_WIRE_SLAVE
+// setting ATmega328 as I2C master.
+//#ifdef THR_WIRE_MASTER
 
 // #define WIRE_MASTER_HOT_PLUG 1  // scan for new devices preventing sleep mode
 // of I2C slaves
@@ -14,7 +14,6 @@ byte numberI2CDevices = 0;
 byte wireDeviceID[WIRE_MAX_DEVICES];
 
 #include "BioSem.h"
-//SEMAPHORE_DECL(lockTimeCriticalZone, 1); // only one process in some specific zones
 
 #if I2C_HARDWARE == 1
 #include <Wire.h>
@@ -213,4 +212,4 @@ void processWireCommand(char command, char *paramValue,
   }
 }
 
-#endif
+//#endif

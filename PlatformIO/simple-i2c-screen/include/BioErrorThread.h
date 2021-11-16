@@ -2,7 +2,7 @@
 #include <ChNil.h>
 
 //#include "BioParams.h"
-#include "hack/BioParams.h"
+#include "BioParams.h"
 
 #ifdef THR_ERROR
 

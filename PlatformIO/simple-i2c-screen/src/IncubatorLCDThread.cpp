@@ -104,30 +104,30 @@ void lcdStatus(int counter, boolean doAction) {
     case 0:
       lcd.setCursor(0, 0);
       lcd.print("T1:");
-      lcd.print((double)getParameter(PARAM_TEMP_EXT_1) / 100);
+      //lcd.print((double)getParameter(PARAM_TEMP_EXT_1) / 100);
       lcd.print(" ");
       lcd.setCursor(8, 0);
       lcd.print("T2:");
-      lcd.print((double)getParameter(PARAM_TEMP_EXT_2) / 100);
+      //lcd.print((double)getParameter(PARAM_TEMP_EXT_2) / 100);
       lcd.print(" ");
       lcdPrintBlank(2);
       lcd.setCursor(0, 1);
       lcd.print("TG:");
-      lcd.print((double)getParameter(PARAM_TEMP_TARGET) / 100);
+      //lcd.print((double)getParameter(PARAM_TEMP_TARGET) / 100);
       lcdPrintBlank(2);
       lcd.setCursor(8, 1);
       lcd.print("PID:");
-      lcd.print(getParameter(PARAM_HBRIDGE_PID));
+      //lcd.print(getParameter(PARAM_HBRIDGE_PID));
       lcdPrintBlank(2);
       break;
     case 1:
       lcd.setCursor(0, 0);
       lcd.print("PCB:");
-      lcd.print((double)getParameter(PARAM_TEMP_PCB) / 100);
+      //lcd.print((double)getParameter(PARAM_TEMP_PCB) / 100);
       lcd.print(" ");
       lcd.setCursor(0, 1);
       lcd.print("PID:");
-      lcd.print(getParameter(PARAM_HBRIDGE_PID));
+      //lcd.print(getParameter(PARAM_HBRIDGE_PID));
       lcd.print("  ");
       break;
   }
@@ -273,21 +273,21 @@ void lcdMenuSettings(int counter, boolean doAction) {
       break;
     case 1:
       lcd.print(F("External fan"));
-      currentParameter = PARAM_FAN_EXTERNAL;
+      //currentParameter = PARAM_FAN_EXTERNAL;
       minValue = 0;
       maxValue = 255;
       strcpy(currentUnit, "\0");
       break;
     case 2:
       lcd.print(F("Internal fan"));
-      currentParameter = PARAM_FAN_INTERNAL;
+      //currentParameter = PARAM_FAN_INTERNAL;
       minValue = 0;
       maxValue = 255;
       strcpy(currentUnit, "\0");
       break;
     case 3:
       lcd.print(F("Temperature 1"));
-      currentParameter = PARAM_TEMP_TARGET_1;
+      //currentParameter = PARAM_TEMP_TARGET_1;
       currentFactor = 0.01;
       minValue = -1000;
       maxValue = 5000;
@@ -295,14 +295,14 @@ void lcdMenuSettings(int counter, boolean doAction) {
       break;
     case 4:
       lcd.print(F("Waiting time 1"));
-      currentParameter = PARAM_TIME_1;
+      //currentParameter = PARAM_TIME_1;
       minValue = 0;
       maxValue = 10000;
       strcpy(currentUnit, "min.\0");
       break;
     case 5:
       lcd.print(F("Temperature 2"));
-      currentParameter = PARAM_TEMP_TARGET_2;
+      //currentParameter = PARAM_TEMP_TARGET_2;
       currentFactor = 0.01;
       minValue = -1000;
       maxValue = 5000;
@@ -310,14 +310,14 @@ void lcdMenuSettings(int counter, boolean doAction) {
       break;
     case 6:
       lcd.print(F("Waiting time 2"));
-      currentParameter = PARAM_TIME_2;
+      //currentParameter = PARAM_TIME_2;
       minValue = 0;
       maxValue = 10000;
       strcpy(currentUnit, "min.\0");
       break;
     case 7:
       lcd.print(F("Temperature 3"));
-      currentParameter = PARAM_TEMP_TARGET_3;
+      //currentParameter = PARAM_TEMP_TARGET_3;
       currentFactor = 0.01;
       minValue = -1000;
       maxValue = 5000;
@@ -325,7 +325,7 @@ void lcdMenuSettings(int counter, boolean doAction) {
       break;
     case 8:
       lcd.print(F("Waiting time 3"));
-      currentParameter = PARAM_TIME_3;
+      //currentParameter = PARAM_TIME_3;
       minValue = 0;
       maxValue = 10000;
       strcpy(currentUnit, "min\0");

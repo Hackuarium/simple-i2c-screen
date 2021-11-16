@@ -1,11 +1,11 @@
-#include "BioParams.h"
-
-// setting ATmega32U4 as I2C slave.
-#ifdef THR_WIRE_SLAVE
-
 #include <Arduino.h>
 #include <ChNil.h>
 #include <Wire.h>
+
+#include "BioParams.h"
+
+// setting ATmega328 as I2C master.
+#ifdef THR_WIRE_MASTER
 
 int wireReadInt( uint8_t );
 void wireWakeup( uint8_t );

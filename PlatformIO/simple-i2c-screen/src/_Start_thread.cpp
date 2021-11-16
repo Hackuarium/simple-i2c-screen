@@ -14,45 +14,21 @@ there are not too many activities on the microcontroler
   #include "BioMonitoringThread.h"
 #endif
 
-
 #ifdef THR_SERIAL
   #include "BioSerialThread.h"
-#endif
-
-#ifdef THR_ONEWIRE
-  #include "BioOneWireThread.h"
-#endif
-
-#ifdef THR_FAN
-  #include "BioFanThread.h"
 #endif
 
 #ifdef THR_ERROR
   #include "BioErrorThread.h"
 #endif
 
-#ifdef THR_PID
-  #include "BioPIDThread.h"
-#endif
-
-#ifdef THR_STEPPER
-  #include "BioStepperThread.h"
-#endif
-
-#ifdef THR_STEPS
-  #include "BioStepsThread.h"
-#endif
-
-#ifdef THR_WEIGHT
-  #include "BioWeightThread.h"
-#endif
-
-#ifdef THR_OUTPUTS
-  #include "BioOutputsThread.h"
-#endif
-
 #ifdef THR_LCD
   #include "IncubatorLCDThread.h"
+#endif
+
+#ifdef THR_WIRE_MASTER
+  #include "BioI2CThread.h"
+  //#include "WireMasterCh.h"
 #endif
 
 /*******************************************************************************
@@ -68,26 +44,12 @@ THD_TABLE_BEGIN
 THD_TABLE_ENTRY(waThreadLcd, NULL, ThreadLcd, NULL)
 #endif
 
-#ifdef THR_ONEWIRE
-  THD_TABLE_ENTRY(waThreadOneWire, NULL, ThreadOneWire, NULL)
-  #ifdef THR_PID
-  THD_TABLE_ENTRY(waThreadPID, NULL, ThreadPID, NULL)
-  #endif  
-  #ifdef THR_FAN
-  THD_TABLE_ENTRY(waThreadFan, NULL, ThreadFan, NULL)
-  #endif         
-#endif
-
-#ifdef THR_OUTPUTS
-THD_TABLE_ENTRY(waThreadOutputs, NULL, ThreadOutputs, NULL)
-#endif
-
-#ifdef THR_STEPS
-THD_TABLE_ENTRY(waThreadSteps, NULL, ThreadSteps, NULL)
-#endif
-
 #ifdef THR_SERIAL
 THD_TABLE_ENTRY(waThreadSerial, NULL, ThreadSerial, NULL)
+#endif
+
+#ifdef THR_WIRE_MASTER
+  THD_TABLE_ENTRY(waThreadWireMaster, NULL, ThreadWireMaster, NULL)
 #endif
 
 #ifdef THR_ERROR

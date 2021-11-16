@@ -2,6 +2,7 @@
 #include "Params.h"
 
 void resetParameters() {
+  /*
   setAndSaveParameter(PARAM_TEMP_TARGET, 2000);
   setAndSaveParameter(PARAM_TEMP_TARGET_1, 2000);
   setAndSaveParameter(PARAM_TIME_1, 2000);
@@ -12,6 +13,7 @@ void resetParameters() {
 
   setAndSaveParameter(PARAM_FAN_EXTERNAL, 255);
   setAndSaveParameter(PARAM_FAN_INTERNAL, 255);
+  */
 
   setAndSaveParameter(PARAM_STATE, 0);
   setAndSaveParameter(PARAM_FLAGS, 0);
