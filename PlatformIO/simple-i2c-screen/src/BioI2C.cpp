@@ -99,7 +99,7 @@ void wireUpdateList() {
   byte _data;
   byte currentPosition = 0;
   // I2C Module Scan, from_id ... to_id
-  for (byte i = 0; i <= 127; i++) {
+  for (byte i = 8; i <= 127; i++) { // [0..7] address are reserved
     chSemWait(&lockTimeCriticalZone);
     WireM.beginTransmission(i);
     WireM.write(&_data, 0);
@@ -144,7 +144,7 @@ void printWireInfo(Print *output) {
   }
 }
 
-void printWireDeviceParameter(Print *output, uint8_t wireID) {
+void printWireDeviceParameter(Print *output, uint8_t wireID) {  // Read all parameters in the I2C address
   output->println(F("I2C device: "));
   output->println(wireID);
   for (byte i = 0; i < 26; i++) {

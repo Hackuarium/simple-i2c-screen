@@ -83,14 +83,12 @@ void printResult(char* data, Print* output) {
           paramValue[paramValuePosition] = '\0';
         }
       }
-    } else if (inChar > 64 && inChar < 92) { // an UPPERCASE character so we define the field
-      // we extend however the code to allow 2 letters fields !!!
-      if (paramCurrent > 0) {
+    } else if (inChar > 64 && inChar < 91) { // an UPPERCASE character so we define the field
+      if (paramCurrent > 0) { // we extend however the code to allow 2 letters fields !!!
         paramCurrent *= 26;
       } else { // do we have a number before the uppercase ????
-        if (paramValuePosition > 0) {
-          // we have a target I2C device
-          wireTargetAddress = atoi(paramValue);
+        if (paramValuePosition > 0) { // we have a target I2C device
+          wireTargetAddress = atoi(paramValue); // Store address
           paramValuePosition = 0;
           paramValue[paramValuePosition] = '\0';
         }
