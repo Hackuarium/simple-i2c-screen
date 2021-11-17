@@ -36,7 +36,12 @@ THD_FUNCTION(ThreadWireMaster, arg) {
 #endif
     wireEventStatus++;
 
-    chThdSleep(200);
+    //chThdSleep(200);
+
+    saveWireDeviceParameter( SLAVE_ID );  // Read params for the I2C slave and store it
+
+    chThdSleep(1000);
+
   }
 }
 

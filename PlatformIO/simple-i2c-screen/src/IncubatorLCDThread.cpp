@@ -109,14 +109,14 @@ void lcdStatus(int counter, boolean doAction) {
       lcd.setCursor(0, 0);
       lcd.print("T1:");
       #ifdef THR_WIRE_MASTER
-      lcd.print((double)wireReadIntRegister( 8, 0) / 100);
+      lcd.print((double)wireReadIntRegister( SLAVE_ID, 0) / 100);
       #endif
       //lcd.print((double)getParameter(PARAM_TEMP_EXT1) / 100);
       lcd.print(" ");
       lcd.setCursor(8, 0);
       lcd.print("T2:");
       #ifdef THR_WIRE_MASTER
-      lcd.print((double)wireReadIntRegister( 8, 1) / 100);
+      lcd.print((double)wireReadIntRegister( SLAVE_ID, 1) / 100);
       #endif
       //lcd.print((double)getParameter(PARAM_TEMP_EXT2) / 100);
       lcd.print(" ");
@@ -124,14 +124,14 @@ void lcdStatus(int counter, boolean doAction) {
       lcd.setCursor(0, 1);
       lcd.print("TG:");
       #ifdef THR_WIRE_MASTER
-      lcd.print((double)wireReadIntRegister( 8, 4) / 100);
+      lcd.print((double)wireReadIntRegister( SLAVE_ID, 4) / 100);
       #endif
       //lcd.print((double)getParameter(PARAM_TEMP_TARGET) / 100);
       lcdPrintBlank(2);
       lcd.setCursor(8, 1);
       lcd.print("PID:");
       #ifdef THR_WIRE_MASTER
-      lcd.print((double)wireReadIntRegister( 8, 5));
+      lcd.print((double)wireReadIntRegister( SLAVE_ID, 5));
       #endif
       //lcd.print(getParameter(PARAM_PID));
       lcdPrintBlank(2);
@@ -140,14 +140,14 @@ void lcdStatus(int counter, boolean doAction) {
       lcd.setCursor(0, 0);
       lcd.print("T3:");
       #ifdef THR_WIRE_MASTER
-      lcd.print((double)wireReadIntRegister( 8, 2) / 100);
+      lcd.print((double)wireReadIntRegister( SLAVE_ID, 2) / 100);
       #endif
       //lcd.print((double)getParameter(PARAM_TEMP_EXT1) / 100);
       lcd.print(" ");
       lcd.setCursor(8, 0);
       lcd.print("PCB:");
       #ifdef THR_WIRE_MASTER
-      lcd.print((double)wireReadIntRegister( 8, 3) / 100);
+      lcd.print((double)wireReadIntRegister( SLAVE_ID, 3) / 100);
       #endif
       //lcd.print((double)getParameter(PARAM_TEMP_EXT2) / 100);
       lcd.print(" ");
@@ -155,14 +155,14 @@ void lcdStatus(int counter, boolean doAction) {
       lcd.setCursor(0, 1);
       lcd.print("TG:");
       #ifdef THR_WIRE_MASTER
-      lcd.print((double)wireReadIntRegister( 8, 4) / 100);
+      lcd.print((double)wireReadIntRegister( SLAVE_ID, 4) / 100);
       #endif
       //lcd.print((double)getParameter(PARAM_TEMP_TARGET) / 100);
       lcdPrintBlank(2);
       lcd.setCursor(8, 1);
       lcd.print("PID:");
       #ifdef THR_WIRE_MASTER
-      lcd.print((double)wireReadIntRegister( 8, 5));
+      lcd.print((double)wireReadIntRegister( SLAVE_ID, 5));
       #endif
       //lcd.print(getParameter(PARAM_PID));
       lcdPrintBlank(2);

@@ -15,6 +15,9 @@ void printWireInfo( Print* );
 void printWireDeviceParameter( Print*, uint8_t);
 void wireRemoveDevice( byte );
 void wireInsertDevice( byte, byte);
+
+void saveWireDeviceParameter( uint8_t );
+
 bool wireDeviceExists( byte );
 void wireUpdateList();
 void printWireHelp( Print* );

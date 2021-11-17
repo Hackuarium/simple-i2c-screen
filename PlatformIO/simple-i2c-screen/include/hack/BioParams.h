@@ -68,7 +68,6 @@
 #endif
 
 
-
 #define PARAM_TEMP_EXT1      0   // A - temperature of the solution
 #define PARAM_TEMP_EXT2      1   // B - temperature of the solution
 
@@ -142,6 +141,8 @@
 /*******************************************************************************
       WireMaster.h
 *******************************************************************************/
+
+#define SLAVE_ID             8
 
 #define I2C_TIMEOUT 10
 #define I2C_SLOWMODE 1

@@ -160,6 +160,11 @@ void printWireDeviceParameter(Print *output, uint8_t wireID) {  // Read all para
   }
 }
 
+void saveWireDeviceParameter( uint8_t wireID) {  // Read params for the I2C slave and store it
+  for ( uint8_t i = 0; i < 26; i++) {
+    setParameter( i, wireReadIntRegister(wireID, i) );
+  }
+}
 
 bool wireDeviceExists(byte id) {
   for (byte i = 0; i < numberI2CDevices; i++) {
