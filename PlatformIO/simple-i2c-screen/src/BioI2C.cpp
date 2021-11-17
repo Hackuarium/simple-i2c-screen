@@ -152,10 +152,10 @@ void printWireDeviceParameter(Print *output, uint8_t wireID) {  // Read all para
   output->println(F("I2C device: "));
   output->println(wireID);
   for (byte i = 0; i < 26; i++) {
-    output->print((char)(i + 65));
-    output->print(" : ");
     output->print(i);
-    output->print(F(" - "));
+    output->print(F("- "));
+    output->print((char)(i + 65));
+    output->print(F(": "));
     output->println(wireReadIntRegister(wireID, i));
   }
 }
