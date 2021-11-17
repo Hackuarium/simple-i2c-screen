@@ -8,6 +8,10 @@
 
 #ifdef THR_LCD
 
+#ifdef THR_WIRE_MASTER
+#include "BioI2C.h"
+#endif
+
 #include <LiquidCrystal.h>
 #include "libraries/RotaryEncoder/Rotary.h"
 #include <PinChangeInterrupt.h>
@@ -104,31 +108,64 @@ void lcdStatus(int counter, boolean doAction) {
     case 0:
       lcd.setCursor(0, 0);
       lcd.print("T1:");
-      //lcd.print((double)getParameter(PARAM_TEMP_EXT_1) / 100);
+      #ifdef THR_WIRE_MASTER
+      lcd.print((double)wireReadIntRegister( 8, 0) / 100);
+      #endif
+      //lcd.print((double)getParameter(PARAM_TEMP_EXT1) / 100);
       lcd.print(" ");
       lcd.setCursor(8, 0);
       lcd.print("T2:");
-      //lcd.print((double)getParameter(PARAM_TEMP_EXT_2) / 100);
+      #ifdef THR_WIRE_MASTER
+      lcd.print((double)wireReadIntRegister( 8, 1) / 100);
+      #endif
+      //lcd.print((double)getParameter(PARAM_TEMP_EXT2) / 100);
       lcd.print(" ");
       lcdPrintBlank(2);
       lcd.setCursor(0, 1);
       lcd.print("TG:");
+      #ifdef THR_WIRE_MASTER
+      lcd.print((double)wireReadIntRegister( 8, 4) / 100);
+      #endif
       //lcd.print((double)getParameter(PARAM_TEMP_TARGET) / 100);
       lcdPrintBlank(2);
       lcd.setCursor(8, 1);
       lcd.print("PID:");
-      //lcd.print(getParameter(PARAM_HBRIDGE_PID));
+      #ifdef THR_WIRE_MASTER
+      lcd.print((double)wireReadIntRegister( 8, 5));
+      #endif
+      //lcd.print(getParameter(PARAM_PID));
       lcdPrintBlank(2);
       break;
     case 1:
       lcd.setCursor(0, 0);
-      lcd.print("PCB:");
-      //lcd.print((double)getParameter(PARAM_TEMP_PCB) / 100);
+      lcd.print("T3:");
+      #ifdef THR_WIRE_MASTER
+      lcd.print((double)wireReadIntRegister( 8, 2) / 100);
+      #endif
+      //lcd.print((double)getParameter(PARAM_TEMP_EXT1) / 100);
       lcd.print(" ");
+      lcd.setCursor(8, 0);
+      lcd.print("PCB:");
+      #ifdef THR_WIRE_MASTER
+      lcd.print((double)wireReadIntRegister( 8, 3) / 100);
+      #endif
+      //lcd.print((double)getParameter(PARAM_TEMP_EXT2) / 100);
+      lcd.print(" ");
+      lcdPrintBlank(2);
       lcd.setCursor(0, 1);
+      lcd.print("TG:");
+      #ifdef THR_WIRE_MASTER
+      lcd.print((double)wireReadIntRegister( 8, 4) / 100);
+      #endif
+      //lcd.print((double)getParameter(PARAM_TEMP_TARGET) / 100);
+      lcdPrintBlank(2);
+      lcd.setCursor(8, 1);
       lcd.print("PID:");
-      //lcd.print(getParameter(PARAM_HBRIDGE_PID));
-      lcd.print("  ");
+      #ifdef THR_WIRE_MASTER
+      lcd.print((double)wireReadIntRegister( 8, 5));
+      #endif
+      //lcd.print(getParameter(PARAM_PID));
+      lcdPrintBlank(2);
       break;
   }
 }
@@ -526,7 +563,7 @@ THD_FUNCTION(ThreadLcd, arg) {
 
   while (true) {
     lcdMenu();
-    chThdSleep(40);
+    chThdSleep(400);
   }
 }
 
