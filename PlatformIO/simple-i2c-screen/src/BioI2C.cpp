@@ -97,37 +97,41 @@ void wireInsertDevice(byte id, byte newDevice) {
 void wireUpdateList() {
   // 16ms
   byte _data;
-  byte currentPosition = 0;
+  // Created a RESERVED ADDRESS 7
+  byte currentPosition = 8;
+  uint8_t bufferReservedAddress = currentPosition - 8;
   // I2C Module Scan, from_id ... to_id
-  for (byte i = 8; i <= 127; i++) { // [0..7] address are reserved
+  for (byte i = currentPosition; i <= 127; i++) { // [0..7] address are reserved
     chSemWait(&lockTimeCriticalZone);
     WireM.beginTransmission(i);
-    WireM.write(&_data, 0);
+    //WireM.write(&_data, 0);
     // I2C Module found out!
     if (WireM.endTransmission() == 0) {
+      Serial.println(F("Device!"));
+      Serial.println(i);
       // there is a device, we need to check if we should add or remove a
       // previous device
-      if (currentPosition < numberI2CDevices &&
-          wireDeviceID[currentPosition] ==
+      if ( (currentPosition - 8) < numberI2CDevices &&
+          wireDeviceID[currentPosition - 8] ==
               i) { // it is still the same device that is at the same position,
                    // nothing to do
         currentPosition++;
-      } else if (currentPosition < numberI2CDevices &&
-                 wireDeviceID[currentPosition] <
+      } else if ( (currentPosition - 8)  < numberI2CDevices &&
+                 wireDeviceID[(currentPosition - 8) ] <
                      i) { // some device(s) disappear, we need to delete them
-        wireRemoveDevice(currentPosition);
+        wireRemoveDevice( (currentPosition - 8) );
         i--;
-      } else if (currentPosition >= numberI2CDevices ||
-                 wireDeviceID[currentPosition] > i) { // we need to add a device
-        wireInsertDevice(currentPosition, i);
+      } else if ( (currentPosition - 8) >= numberI2CDevices ||
+                 wireDeviceID[(currentPosition - 8) ] > i) { // we need to add a device
+        wireInsertDevice((currentPosition - 8), i);
         currentPosition++;
       }
     }
     chSemSignal(&lockTimeCriticalZone);
     chThdSleep(1);
   }
-  while (currentPosition < numberI2CDevices) {
-    wireRemoveDevice(currentPosition);
+  while ((currentPosition - 8) < numberI2CDevices) {
+    wireRemoveDevice( (currentPosition - 8) );
   }
 }
 
