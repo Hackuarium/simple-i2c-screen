@@ -9,8 +9,6 @@
 #include <Arduino.h>
 #include <ChNil.h>
 
-#ifdef THR_EEPROM_LOGGER
-
 #include "BioParams.h"
 #include "Params.h"
 
@@ -93,24 +91,6 @@ void printLog(Print* output) {
   }
 }
 
-THD_FUNCTION ( ThreadLogger, arg ) {
-  loggerInit();
-  while (true) {
-    chThdSleep(1000);
-    
-    // This should deal correctly with the overflow that happens after 49.7 days
-    eepromLoggerTimeBetween= (millis() - lastLog) / 1000;
-    
-
-    int delayBetweenLog = LOG_INTERVAL;
-    if (delayBetweenLog < 300) delayBetweenLog = 300;
-
-    if (eepromLoggerTimeBetween >= delayBetweenLog) {
-      writeLog();
-    }
-  }
-}
-
 void printLoggerHelp( Print * output) {
   output->println(F("Logger help"));
   output->println(F("(ld) Dump"));
@@ -144,5 +124,3 @@ void processLoggerCommand(char command, char* data, Print* output) {
       printLoggerHelp(output);
   }
 }
-
-#endif

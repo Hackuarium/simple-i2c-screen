@@ -12,25 +12,11 @@
 #include "BioI2C.h"
 #endif
 
+#include "EEPROMLogger.h"
+
 #include <LiquidCrystal.h>
 #include "libraries/RotaryEncoder/Rotary.h"
 #include <PinChangeInterrupt.h>
-
-#define LCD_E      A1
-#define LCD_RS     A0
-#define LCD_D4     A2
-#define LCD_D5     2
-#define LCD_D6     3
-#define LCD_D7     4
-#define LCD_BL     A3    // back light
-
-
-#define LCD_NB_ROWS     2
-#define LCD_NB_COLUMNS  16
-
-#define ROT_A      6
-#define ROT_B      5
-#define ROT_PUSH   7
 
 LiquidCrystal lcd(LCD_RS, LCD_E, LCD_D4, LCD_D5, LCD_D6, LCD_D7);
 
@@ -47,7 +33,6 @@ Rotary rotary = Rotary(ROT_A, ROT_B);
 byte noEventCounter = 0;
 byte previousMenu = 0;
 
-/*
 void lcdResults(int counter, boolean doAction) {
   if (doAction) setParameter(PARAM_MENU, 0);
   if (noEventCounter < 2) lcd.clear();
@@ -67,16 +52,16 @@ void lcdResults(int counter, boolean doAction) {
       lcd.print(F("T1    T2    PID"));
       header = false;
     } else {
-      lcd.print(((float)getParameterFromLog(i, PARAM_TEMP_EXT_1)) / 100);
+      lcd.print(((float)getParameterFromLog(i, PARAM_TEMP_EXT1)) / 100);
       lcd.setCursor(6, i - start);
-      lcd.print(((float)getParameterFromLog(i, PARAM_TEMP_EXT_2)) / 100);
+      lcd.print(((float)getParameterFromLog(i, PARAM_TEMP_EXT2)) / 100);
       lcd.setCursor(12, i - start);
-      lcd.print(getParameterFromLog(i, PARAM_HBRIDGE_PID));
+      lcd.print(getParameterFromLog(i, PARAM_TEMP_PID));
     }
     lcdPrintBlank(6);
   }
 }
-*/
+
 
 void updateCurrentMenu(int counter, byte maxValue, byte modulo) {
   byte currentMenu = getParameter(PARAM_MENU);
@@ -544,7 +529,7 @@ void lcdMenu() {
       lcdUtilities(counter, doAction);
       break;
     case 100:
-      //lcdResults(counter, doAction);
+      lcdResults(counter, doAction);
       break;
   }
 }

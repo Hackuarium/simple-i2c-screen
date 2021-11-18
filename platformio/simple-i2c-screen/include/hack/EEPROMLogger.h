@@ -1,5 +1,3 @@
-#ifdef THR_EEPROM_LOGGER
-
 #include <Arduino.h>
 #include <ChNil.h>
 // part of the EEPROM is for the log
@@ -22,8 +20,3 @@ void printLog(Print* );
 
 void printLoggerHelp( Print * );
 void processLoggerCommand( char, char*, Print* );
-
-THD_WORKING_AREA( waThreadLogger, 20 );
-THD_FUNCTION( ThreadLogger, arg );
-
-#endif
