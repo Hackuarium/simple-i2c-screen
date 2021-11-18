@@ -1,6 +1,6 @@
 #include "BioParams.h"
+#include "Hack.h"
 #include "Params.h"
-#include "Hack.h" 
 
 void resetParameters() {
   /*
@@ -20,21 +20,16 @@ void resetParameters() {
   setAndSaveParameter(PARAM_FLAGS, 0);
   setAndSaveParameter(PARAM_MENU, 0);
   setAndSaveParameter(PARAM_ERROR, 0);
-  setAndSaveParameter(PARAM_STATUS, 0);
-  setAndSaveParameter(PARAM_ENABLED, 1);
 
 #ifdef THR_EEPROM_LOGGER
   formatLog();
 #endif
 
-
-  //setQualifier(21313);
+  // setQualifier(21313);
 }
 
-void checkParameters()
-{
-  if (getParameter(PARAM_STATUS) < 0)
-  {
+void checkParameters() {
+  if (getParameter(PARAM_STATE) < 0) {
     resetParameters();
   }
 }

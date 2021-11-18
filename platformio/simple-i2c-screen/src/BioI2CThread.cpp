@@ -38,18 +38,15 @@ THD_FUNCTION(ThreadWireMaster, arg) {
 
     // chThdSleep(200);
 
-    int stateParam = getParameter(PARAM_STATE);
+    wireWriteIntRegister(SLAVE_ID, PARAM_TEMP_TARGET,
+                         getParameter(PARAM_TEMP_TARGET));
+    wireWriteIntRegister(SLAVE_ID, PARAM_STATE, getParameter(PARAM_STATE));
 
-    if (getParameter(PARAM_STATUS) != stateParam) {
-      wireWriteIntRegister(SLAVE_ID, PARAM_STATUS, stateParam);
-      wireWriteIntRegister(SLAVE_ID, PARAM_ENABLED, stateParam);
-    }
-
-    for (uint8_t i = 0; i < 25; i++) {
+    for (uint8_t i = 1; i <= 12; i++) {
       setParameter(i, wireReadIntRegister(SLAVE_ID, i));
     }
 
-    chThdSleep(5000);
+    chThdSleep(2000);
   }
 }
 

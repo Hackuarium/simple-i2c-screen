@@ -1,14 +1,14 @@
 #include <Arduino.h>
 //#include <TimeLib.h>
 
-#include "libraries/time/TimeLib.h"
-#include "Params.h"
-#include "BioParams.h"
-#include "SSTLogger.h"
 #include "BioOneWire.h"
+#include "BioParams.h"
+#include "Params.h"
+#include "SSTLogger.h"
 #include "Weight.h"
+#include "libraries/time/TimeLib.h"
 
-void printGeneralParameters( Print* output ) {
+void printGeneralParameters(Print* output) {
   output->print(F("EPOCH:"));
   output->println(now());
   output->print(F("millis:"));
@@ -21,7 +21,7 @@ void printGeneralParameters( Print* output ) {
 #endif
 }
 
-void processSpecificCommand( char* data, char* paramValue, Print* output ) {
+void processSpecificCommand(char* data, char* paramValue, Print* output) {
   switch (data[0]) {
 #ifdef THR_SST_LOGGER
     case 'l':
@@ -37,22 +37,11 @@ void processSpecificCommand( char* data, char* paramValue, Print* output ) {
       printGeneralParameters(output);
       break;
     case 't':
-      output->print(F("Status: "));
-      output->println(getParameter(PARAM_STATUS),BIN);
-      for (byte i = 0; i < 11; i++) {
-        output->print(i);
-        output->print(": ");
-        output->println(getParameterBit(PARAM_STATUS, i));
-      }
-      output->print(F("Enabled: "));
-      output->println(getParameter(PARAM_ENABLED),BIN);
-      for (byte i = 0; i < 6; i++) {
-        output->print(i);
-        output->print(": ");
-        output->println(getParameterBit(PARAM_ENABLED, i));
-      }
+      output->print(F("State: "));
+      output->println(getParameter(PARAM_STATE));
+
       output->print(F("Error: "));
-      output->println(getParameter(PARAM_ERROR),BIN);
+      output->println(getParameter(PARAM_ERROR), BIN);
       for (byte i = 0; i < 8; i++) {
         output->print(i);
         output->print(": ");
@@ -80,5 +69,3 @@ void printSpecificHelp(Print* output) {
   output->println(F("(w)eight"));
 #endif
 }
-
-

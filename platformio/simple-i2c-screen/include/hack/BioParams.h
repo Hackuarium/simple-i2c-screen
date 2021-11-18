@@ -57,7 +57,7 @@
   SERIAL, LOGGER AND DEBUGGERS
 *******************************/
 
-#define MAX_PARAM 26
+#define MAX_PARAM 16
 
 #define INT_MAX_VALUE 32767
 #define INT_MIN_VALUE -32768
@@ -97,19 +97,30 @@
   PARAMETERS
 *******************************/
 
-#define PARAM_TEMP_EXT1 0  // A - temperature over to PCB
-#define PARAM_TEMP_EXT2 1  // B - temperature of the solution
-#define PARAM_TEMP_EXT3 2  // C - temperature of the solution
+#define PARAM_TEMP_TARGET 0  // A - target temperature of the liquid
+#define PARAM_TEMP_EXT1 1    // B - temperature over to PCB
+#define PARAM_TEMP_EXT2 2    // C - temperature of the solution
+#define PARAM_TEMP_EXT3 3    // D - temperature of the solution
 
-#define PARAM_TEMP_PCB 3     // D - temperature of the PID
-#define PARAM_TEMP_TARGET 4  // E - target temperature of the liquid
-#define PARAM_PID 5          // F - heating amount of energy
+#define PARAM_TEMP_PCB 4  // E - temperature of the PID
+#define PARAM_PID 5       // F - heating amount of energy
+
+// Todo implemented temperature slope control
+#define PARAM_TEMP_TARGET_1 6
+#define PARAM_TIME_1 7
+#define PARAM_TEMP_TARGET_2 8
+#define PARAM_TIME_2 9
+#define PARAM_TEMP_TARGET_3 10
+#define PARAM_TIME_3 11
+
+#define PARAM_ERROR 12  // X - errors
+#define PARAM_STATE 13  // current state
+#define PARAM_MENU 14   // current menu
 
 /*******************************
   PARAMETER - FLAG DEFINITION
 *******************************/
 
-#define PARAM_ERROR 23  // X - errors
 // extern const int PARAM_ERROR;
 #define FLAG_TEMP_PCB_PROBE_ERROR \
   0  // pcb probe failed (one wire not answering)
@@ -125,12 +136,6 @@
 #define FLAG_TEMP_EXT3_RANGE_ERROR 6  // temperature of liquid is outside range
 #define FLAG_TEMP_TARGET_RANGE_ERROR 7  // target temperature is outside range
 #define MASK_TEMP_ERROR 0b11111111  // where are the bit for temperature error
-
-#define PARAM_ENABLED 24  // Y - enabled service (set by user)
-#define PARAM_STATUS 25   // Z - currently active service
-
-// the following flags are defined for PARAM_STATUS and PARAM_ENABLED
-#define FLAG_PID_CONTROL 0  // 0 to stop PID
 
 /*******************************
   OTHERS VARIABLES
@@ -164,8 +169,3 @@
 
 #define STATE_OFF 0
 #define STATE_CONSTANT 1
-#define STATE_PROGRAM 2
-
-#define PARAM_STATE 26  // current state
-#define PARAM_MENU 27   // current menu
-#define PARAM_SEND 28   // Send I2C Message
