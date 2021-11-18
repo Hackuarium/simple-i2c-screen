@@ -26,9 +26,6 @@ THD_FUNCTION(ThreadWireMaster, arg) {
 
   WireM.begin();
 
-  saveWireDeviceParameter(
-      SLAVE_ID);  // Read params for the I2C slave and store it
-
   while (true) {
 #ifdef WIRE_MASTER_HOT_PLUG
     // allows to log when devices are plugged in / out

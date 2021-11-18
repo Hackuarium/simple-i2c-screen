@@ -22,12 +22,12 @@
   THREADS
 *******************************/
 
-//#define THR_EEPROM_LOGGER   1 // Define EEPROM Logger
-#define THR_LCD 1          // Define LCD
-#define THR_SERIAL 1       // Define Serial
-#define THR_WIRE_MASTER 1  // Define board like Master I2C
-//#define THR_ERROR           1 // Define the pin to blink if there is an error
-//#define THR_MONITORING      1 // Define the pin to blink if everything goes
+#define THR_EEPROM_LOGGER 1  // Define EEPROM Logger
+#define THR_LCD 1            // Define LCD
+#define THR_SERIAL 1         // Define Serial
+#define THR_WIRE_MASTER 1    // Define board like Master I2C
+#define THR_ERROR 1          // Define the pin to blink if there is an error
+#define THR_MONITORING 1     // Define the pin to blink if everything goes
 // well
 
 /*******************************
