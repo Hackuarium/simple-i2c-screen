@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 2 3
+Sheet 3 3
 Title ""
 Date ""
 Rev ""
@@ -25,10 +25,10 @@ F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/ATmega328_P%20AVR%20MCU%20w
 	1    0    0    -1  
 $EndComp
 $Comp
-L incubator-rescue:C-Device C6
+L incubator-rescue:C-Device C?
 U 1 1 610AABD5
 P 5200 1950
-AR Path="/610AABD5" Ref="C6"  Part="1" 
+AR Path="/610AABD5" Ref="C?"  Part="1" 
 AR Path="/61116939/610AABD5" Ref="C6"  Part="1" 
 F 0 "C6" H 5315 1996 50  0000 L CNN
 F 1 "100n" H 5315 1905 50  0000 L CNN
@@ -38,10 +38,10 @@ F 3 "~" H 5200 1950 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L incubator-rescue:C-Device C5
+L incubator-rescue:C-Device C?
 U 1 1 610AABDB
 P 4850 1950
-AR Path="/610AABDB" Ref="C5"  Part="1" 
+AR Path="/610AABDB" Ref="C?"  Part="1" 
 AR Path="/61116939/610AABDB" Ref="C5"  Part="1" 
 F 0 "C5" H 4965 1996 50  0000 L CNN
 F 1 "10u" H 4965 1905 50  0000 L CNN
@@ -51,10 +51,10 @@ F 3 "~" H 4850 1950 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L incubator-rescue:VCC-power #PWR0116
+L incubator-rescue:VCC-power #PWR0107
 U 1 1 610AABF0
 P 4900 3100
-F 0 "#PWR0116" H 4900 2950 50  0001 C CNN
+F 0 "#PWR0107" H 4900 2950 50  0001 C CNN
 F 1 "VCC" H 4915 3273 50  0000 C CNN
 F 2 "" H 4900 3100 50  0001 C CNN
 F 3 "" H 4900 3100 50  0001 C CNN
@@ -75,10 +75,10 @@ Wire Wire Line
 Text GLabel 4600 3600 0    50   Input ~ 0
 ~RESET
 $Comp
-L incubator-rescue:R-Device R5
+L incubator-rescue:R-Device R?
 U 1 1 610AAC20
 P 4900 3375
-AR Path="/610AAC20" Ref="R5"  Part="1" 
+AR Path="/610AAC20" Ref="R?"  Part="1" 
 AR Path="/61116939/610AAC20" Ref="R5"  Part="1" 
 F 0 "R5" H 4970 3421 50  0000 L CNN
 F 1 "100k" H 4970 3330 50  0000 L CNN
@@ -104,10 +104,10 @@ D6
 Text HLabel 7050 4550 2    50   Input ~ 0
 D7
 $Comp
-L incubator-rescue:GND-power #PWR0117
+L incubator-rescue:GND-power #PWR0108
 U 1 1 610AAC01
 P 4900 4050
-F 0 "#PWR0117" H 4900 3800 50  0001 C CNN
+F 0 "#PWR0108" H 4900 3800 50  0001 C CNN
 F 1 "GND" H 4905 3877 50  0000 C CNN
 F 2 "" H 4900 4050 50  0001 C CNN
 F 3 "" H 4900 4050 50  0001 C CNN
@@ -117,10 +117,10 @@ $EndComp
 Text HLabel 4750 2250 0    50   Input ~ 0
 GND
 $Comp
-L incubator-rescue:GND-power #PWR0118
+L incubator-rescue:GND-power #PWR0115
 U 1 1 610AAC08
 P 6350 4950
-F 0 "#PWR0118" H 6350 4700 50  0001 C CNN
+F 0 "#PWR0115" H 6350 4700 50  0001 C CNN
 F 1 "GND" H 6355 4777 50  0000 C CNN
 F 2 "" H 6350 4950 50  0001 C CNN
 F 3 "" H 6350 4950 50  0001 C CNN
@@ -192,10 +192,10 @@ Wire Wire Line
 Wire Wire Line
 	6950 3250 7050 3250
 $Comp
-L incubator-rescue:VCC-power #PWR0119
+L incubator-rescue:VCC-power #PWR0116
 U 1 1 610AABCF
 P 6350 1650
-F 0 "#PWR0119" H 6350 1500 50  0001 C CNN
+F 0 "#PWR0116" H 6350 1500 50  0001 C CNN
 F 1 "VCC" H 6365 1823 50  0000 C CNN
 F 2 "" H 6350 1650 50  0001 C CNN
 F 3 "" H 6350 1650 50  0001 C CNN
@@ -215,10 +215,10 @@ Connection ~ 6350 1750
 Wire Wire Line
 	6350 1750 6350 1850
 $Comp
-L incubator-rescue:GND-power #PWR0115
+L incubator-rescue:GND-power #PWR0117
 U 1 1 610AABE5
 P 4850 2300
-F 0 "#PWR0115" H 4850 2050 50  0001 C CNN
+F 0 "#PWR0117" H 4850 2050 50  0001 C CNN
 F 1 "GND" H 4855 2127 50  0000 C CNN
 F 2 "" H 4850 2300 50  0001 C CNN
 F 3 "" H 4850 2300 50  0001 C CNN
