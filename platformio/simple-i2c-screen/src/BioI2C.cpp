@@ -39,8 +39,8 @@ int wireReadInt(uint8_t address) {
 void wireWakeup(uint8_t address) {
   chSemWait(&lockTimeCriticalZone);
   WireM.beginTransmission(address);
-  WireM.endTransmission(); // Send data to I2C dev with option for a repeated
-                           // start
+  WireM.endTransmission();  // Send data to I2C dev with option for a repeated
+                            // start
   chSemSignal(&lockTimeCriticalZone);
 }
 
@@ -48,8 +48,8 @@ void wireSetRegister(uint8_t address, uint8_t registerAddress) {
   chSemWait(&lockTimeCriticalZone);
   WireM.beginTransmission(address);
   WireM.write(registerAddress);
-  WireM.endTransmission(); // Send data to I2C dev with option for a repeated
-                           // start
+  WireM.endTransmission();  // Send data to I2C dev with option for a repeated
+                            // start
   chSemSignal(&lockTimeCriticalZone);
 }
 
@@ -58,8 +58,9 @@ int wireReadIntRegister(uint8_t address, uint8_t registerAddress) {
   return wireReadInt(address);
 }
 
-void wireCopyParameter(uint8_t address, uint8_t registerAddress,
-                      uint8_t parameterID) {
+void wireCopyParameter(uint8_t address,
+                       uint8_t registerAddress,
+                       uint8_t parameterID) {
   setParameter(parameterID, wireReadIntRegister(address, registerAddress));
 }
 
@@ -70,8 +71,8 @@ void wireWriteIntRegister(uint8_t address, uint8_t registerAddress, int value) {
   if (value > 255 || value < 0)
     WireM.write(value >> 8);
   WireM.write(value & 255);
-  WireM.endTransmission(); // Send data to I2C dev with option for a repeated
-                           // start
+  WireM.endTransmission();  // Send data to I2C dev with option for a repeated
+                            // start
   chSemSignal(&lockTimeCriticalZone);
 }
 
@@ -101,28 +102,30 @@ void wireUpdateList() {
   byte currentPosition = 8;
   uint8_t bufferReservedAddress = currentPosition - 8;
   // I2C Module Scan, from_id ... to_id
-  for (byte i = currentPosition; i <= 127; i++) { // [0..7] address are reserved
+  for (byte i = currentPosition; i <= 127;
+       i++) {  // [0..7] address are reserved
     chSemWait(&lockTimeCriticalZone);
     WireM.beginTransmission(i);
-    //WireM.write(&_data, 0);
+    // WireM.write(&_data, 0);
     // I2C Module found out!
     if (WireM.endTransmission() == 0) {
       Serial.println(F("Device!"));
       Serial.println(i);
       // there is a device, we need to check if we should add or remove a
       // previous device
-      if ( (currentPosition - 8) < numberI2CDevices &&
+      if ((currentPosition - 8) < numberI2CDevices &&
           wireDeviceID[currentPosition - 8] ==
-              i) { // it is still the same device that is at the same position,
-                   // nothing to do
+              i) {  // it is still the same device that is at the same position,
+                    // nothing to do
         currentPosition++;
-      } else if ( (currentPosition - 8)  < numberI2CDevices &&
-                 wireDeviceID[(currentPosition - 8) ] <
-                     i) { // some device(s) disappear, we need to delete them
-        wireRemoveDevice( (currentPosition - 8) );
+      } else if ((currentPosition - 8) < numberI2CDevices &&
+                 wireDeviceID[(currentPosition - 8)] <
+                     i) {  // some device(s) disappear, we need to delete them
+        wireRemoveDevice((currentPosition - 8));
         i--;
-      } else if ( (currentPosition - 8) >= numberI2CDevices ||
-                 wireDeviceID[(currentPosition - 8) ] > i) { // we need to add a device
+      } else if ((currentPosition - 8) >= numberI2CDevices ||
+                 wireDeviceID[(currentPosition - 8)] >
+                     i) {  // we need to add a device
         wireInsertDevice((currentPosition - 8), i);
         currentPosition++;
       }
@@ -131,11 +134,11 @@ void wireUpdateList() {
     chThdSleep(1);
   }
   while ((currentPosition - 8) < numberI2CDevices) {
-    wireRemoveDevice( (currentPosition - 8) );
+    wireRemoveDevice((currentPosition - 8));
   }
 }
 
-void printWireInfo(Print *output) {
+void printWireInfo(Print* output) {
   wireUpdateList();
   output->println("I2C");
 
@@ -148,7 +151,9 @@ void printWireInfo(Print *output) {
   }
 }
 
-void printWireDeviceParameter(Print *output, uint8_t wireID) {  // Read all parameters in the I2C address
+void printWireDeviceParameter(
+    Print* output,
+    uint8_t wireID) {  // Read all parameters in the I2C address
   output->println(F("I2C device: "));
   output->println(wireID);
   for (byte i = 0; i < 26; i++) {
@@ -160,12 +165,6 @@ void printWireDeviceParameter(Print *output, uint8_t wireID) {  // Read all para
   }
 }
 
-void saveWireDeviceParameter( uint8_t wireID) {  // Read params for the I2C slave and store it
-  for ( uint8_t i = 0; i < 26; i++) {
-    setParameter( i, wireReadIntRegister(wireID, i) );
-  }
-}
-
 bool wireDeviceExists(byte id) {
   for (byte i = 0; i < numberI2CDevices; i++) {
     if (wireDeviceID[i] == id)
@@ -174,27 +173,27 @@ bool wireDeviceExists(byte id) {
   return false;
 }
 
-
-void printWireHelp(Print *output) {
+void printWireHelp(Print* output) {
   output->println(F("(il) List devices"));
   output->println(F("(ip) List parameters"));
 }
 
-void processWireCommand(char command, char *paramValue,
-                        Print *output) { // char and char* ??
+void processWireCommand(char command,
+                        char* paramValue,
+                        Print* output) {  // char and char* ??
   switch (command) {
-  case 'p':
-    if (paramValue[0] == '\0') {
-      output->println(F("Missing device ID"));
-    } else {
-      printWireDeviceParameter(output, atoi(paramValue));
-    }
-    break;
-  case 'l':
-    printWireInfo(output);
-    break;
-  default:
-    printWireHelp(output);
+    case 'p':
+      if (paramValue[0] == '\0') {
+        output->println(F("Missing device ID"));
+      } else {
+        printWireDeviceParameter(output, atoi(paramValue));
+      }
+      break;
+    case 'l':
+      printWireInfo(output);
+      break;
+    default:
+      printWireHelp(output);
   }
 }
 

@@ -20,13 +20,6 @@ void setup() {
   delay(1000);
   setupParameters();
 
-#ifdef FLASH_SELECT
-  pinMode(FLASH_SELECT, OUTPUT);
-  setupMemory();
-  recoverLastEntryN();
-  loadLastEntryToParameters();   //get back the previous config
-#endif
-
   chBegin();
 }
 
