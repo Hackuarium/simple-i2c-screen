@@ -12,7 +12,7 @@
 #include "Utility.h"
 #include "Params.h"
 //#include "EEPROMHack.h"
-//#include "EEPROMLogger.h"
+#include "EEPROMLogger.h"
 //#include "SSTLogger.h"
 //#include "WireSlaveCh.h"
 //#include "WireMasterCh.h"

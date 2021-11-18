@@ -8,18 +8,10 @@ there are not too many activities on the microcontroler
 #include <Arduino.h>
 #include <ChNil.h>
 
-#include <BioParams.h>
+#include "BioParams.h"
 
-#ifdef THR_MONITORING
-  #include "BioMonitoringThread.h"
-#endif
-
-#ifdef THR_SERIAL
-  #include "BioSerialThread.h"
-#endif
-
-#ifdef THR_ERROR
-  #include "BioErrorThread.h"
+#ifdef THR_EEPROM_LOGGER
+  #include "EEPROMThread.h"
 #endif
 
 #ifdef THR_LCD
@@ -31,6 +23,19 @@ there are not too many activities on the microcontroler
   //#include "WireMasterCh.h"
 #endif
 
+#ifdef THR_SERIAL
+  #include "BioSerialThread.h"
+#endif
+
+#ifdef THR_ERROR
+  #include "BioErrorThread.h"
+#endif
+
+#ifdef THR_MONITORING
+  #include "BioMonitoringThread.h"
+#endif
+
+
 /*******************************************************************************
                           NilRTOS Multithreading Table
       The higher in the Table The higher the priority
@@ -39,17 +44,20 @@ THD_TABLE_BEGIN
 
 // logger should have priority to prevent any corruption of flash memory
 
+#ifdef THR_EEPROM_LOGGER
+THD_TABLE_ENTRY(waThreadLogger, NULL, ThreadLogger, NULL)
+#endif
 
 #ifdef THR_LCD
 THD_TABLE_ENTRY(waThreadLcd, NULL, ThreadLcd, NULL)
 #endif
 
-#ifdef THR_SERIAL
-THD_TABLE_ENTRY(waThreadSerial, NULL, ThreadSerial, NULL)
-#endif
-
 #ifdef THR_WIRE_MASTER
   THD_TABLE_ENTRY(waThreadWireMaster, NULL, ThreadWireMaster, NULL)
+#endif
+
+#ifdef THR_SERIAL
+THD_TABLE_ENTRY(waThreadSerial, NULL, ThreadSerial, NULL)
 #endif
 
 #ifdef THR_ERROR

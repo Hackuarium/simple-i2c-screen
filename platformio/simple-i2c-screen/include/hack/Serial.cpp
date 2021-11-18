@@ -13,6 +13,10 @@
   //#include "WireMasterCh.h"
 #endif
 
+#ifdef THR_EEPROM_LOGGER
+  #include "Hack.h"
+#endif
+
 char serialBuffer[SERIAL_BUFFER_LENGTH];
 uint8_t serialBufferPosition = 0;
 

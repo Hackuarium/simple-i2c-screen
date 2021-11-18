@@ -2,7 +2,7 @@
 #include <ChNil.h>
 #include "BioParams.h"
 #include "BioFunc.h"
-#include "Params.h"
+//#include "Params.h"
 #include "BioHack.h"
 
 
@@ -12,14 +12,11 @@
 #include "BioI2C.h"
 #endif
 
-#include "EEPROMLogger.h"
-
 #include <LiquidCrystal.h>
 #include "libraries/RotaryEncoder/Rotary.h"
 #include <PinChangeInterrupt.h>
 
 LiquidCrystal lcd(LCD_RS, LCD_E, LCD_D4, LCD_D5, LCD_D6, LCD_D7);
-
 
 boolean rotaryPressed = false;
 int rotaryCounter = 0;
@@ -32,6 +29,34 @@ Rotary rotary = Rotary(ROT_A, ROT_B);
 
 byte noEventCounter = 0;
 byte previousMenu = 0;
+
+/*
+  UTIILITIES FUNCTIONS
+*/
+byte accelerationMode = 0;
+int lastIncrement = 0;
+boolean rotaryMayPress = true; // be sure to go through release. Seems to allow some deboucing
+
+
+void updateCurrentMenu(int counter, byte maxValue, byte modulo) {
+  byte currentMenu = getParameter(PARAM_MENU);
+  if (captureCounter) return;
+  if (counter < 0) {
+    setParameter(PARAM_MENU, currentMenu + max(counter, - currentMenu % modulo));
+  } else if (counter > 0) {
+    setParameter(PARAM_MENU, currentMenu + min(counter, maxValue - currentMenu % modulo));
+  }
+}
+
+void updateCurrentMenu(int counter, byte maxValue) {
+  updateCurrentMenu(counter, maxValue, 10);
+}
+
+void lcdPrintBlank(byte number) {
+  for (byte i = 0; i < number; i++) {
+    lcd.print(" ");
+  }
+}
 
 void lcdResults(int counter, boolean doAction) {
   if (doAction) setParameter(PARAM_MENU, 0);
@@ -56,31 +81,9 @@ void lcdResults(int counter, boolean doAction) {
       lcd.setCursor(6, i - start);
       lcd.print(((float)getParameterFromLog(i, PARAM_TEMP_EXT2)) / 100);
       lcd.setCursor(12, i - start);
-      lcd.print(getParameterFromLog(i, PARAM_TEMP_PID));
+      lcd.print(getParameterFromLog(i, PARAM_PID));
     }
     lcdPrintBlank(6);
-  }
-}
-
-
-void updateCurrentMenu(int counter, byte maxValue, byte modulo) {
-  byte currentMenu = getParameter(PARAM_MENU);
-  if (captureCounter) return;
-  if (counter < 0) {
-    setParameter(PARAM_MENU, currentMenu + max(counter, - currentMenu % modulo));
-  } else if (counter > 0) {
-    setParameter(PARAM_MENU, currentMenu + min(counter, maxValue - currentMenu % modulo));
-  }
-}
-
-void updateCurrentMenu(int counter, byte maxValue) {
-  updateCurrentMenu(counter, maxValue, 10);
-}
-
-
-void lcdPrintBlank(byte number) {
-  for (byte i = 0; i < number; i++) {
-    lcd.print(" ");
   }
 }
 
@@ -94,62 +97,62 @@ void lcdStatus(int counter, boolean doAction) {
       lcd.setCursor(0, 0);
       lcd.print("T1:");
       #ifdef THR_WIRE_MASTER
-      lcd.print((double)wireReadIntRegister( SLAVE_ID, 0) / 100);
+      //lcd.print((double)wireReadIntRegister( SLAVE_ID, 0) / 100);
       #endif
-      //lcd.print((double)getParameter(PARAM_TEMP_EXT1) / 100);
+      lcd.print((double)getParameter(PARAM_TEMP_EXT1) / 100);
       lcd.print(" ");
       lcd.setCursor(8, 0);
       lcd.print("T2:");
       #ifdef THR_WIRE_MASTER
-      lcd.print((double)wireReadIntRegister( SLAVE_ID, 1) / 100);
+      //lcd.print((double)wireReadIntRegister( SLAVE_ID, 1) / 100);
       #endif
-      //lcd.print((double)getParameter(PARAM_TEMP_EXT2) / 100);
+      lcd.print((double)getParameter(PARAM_TEMP_EXT2) / 100);
       lcd.print(" ");
       lcdPrintBlank(2);
       lcd.setCursor(0, 1);
       lcd.print("TG:");
       #ifdef THR_WIRE_MASTER
-      lcd.print((double)wireReadIntRegister( SLAVE_ID, 4) / 100);
+      //lcd.print((double)wireReadIntRegister( SLAVE_ID, 4) / 100);
       #endif
-      //lcd.print((double)getParameter(PARAM_TEMP_TARGET) / 100);
+      lcd.print((double)getParameter(PARAM_TEMP_TARGET) / 100);
       lcdPrintBlank(2);
       lcd.setCursor(8, 1);
       lcd.print("PID:");
       #ifdef THR_WIRE_MASTER
-      lcd.print((double)wireReadIntRegister( SLAVE_ID, 5));
+      //lcd.print((double)wireReadIntRegister( SLAVE_ID, 5));
       #endif
-      //lcd.print(getParameter(PARAM_PID));
+      lcd.print(getParameter(PARAM_PID));
       lcdPrintBlank(2);
       break;
     case 1:
       lcd.setCursor(0, 0);
       lcd.print("T3:");
       #ifdef THR_WIRE_MASTER
-      lcd.print((double)wireReadIntRegister( SLAVE_ID, 2) / 100);
+      //lcd.print((double)wireReadIntRegister( SLAVE_ID, 2) / 100);
       #endif
-      //lcd.print((double)getParameter(PARAM_TEMP_EXT1) / 100);
+      lcd.print((double)getParameter(PARAM_TEMP_EXT1) / 100);
       lcd.print(" ");
       lcd.setCursor(8, 0);
       lcd.print("PCB:");
       #ifdef THR_WIRE_MASTER
-      lcd.print((double)wireReadIntRegister( SLAVE_ID, 3) / 100);
+      //lcd.print((double)wireReadIntRegister( SLAVE_ID, 3) / 100);
       #endif
-      //lcd.print((double)getParameter(PARAM_TEMP_EXT2) / 100);
+      lcd.print((double)getParameter(PARAM_TEMP_EXT2) / 100);
       lcd.print(" ");
       lcdPrintBlank(2);
       lcd.setCursor(0, 1);
       lcd.print("TG:");
       #ifdef THR_WIRE_MASTER
-      lcd.print((double)wireReadIntRegister( SLAVE_ID, 4) / 100);
+      //lcd.print((double)wireReadIntRegister( SLAVE_ID, 4) / 100);
       #endif
-      //lcd.print((double)getParameter(PARAM_TEMP_TARGET) / 100);
+      lcd.print((double)getParameter(PARAM_TEMP_TARGET) / 100);
       lcdPrintBlank(2);
       lcd.setCursor(8, 1);
       lcd.print("PID:");
       #ifdef THR_WIRE_MASTER
-      lcd.print((double)wireReadIntRegister( SLAVE_ID, 5));
+      //lcd.print((double)wireReadIntRegister( SLAVE_ID, 5));
       #endif
-      //lcd.print(getParameter(PARAM_PID));
+      lcd.print(getParameter(PARAM_PID));
       lcdPrintBlank(2);
       break;
   }
@@ -178,7 +181,7 @@ void lcdMenuHome(int counter, boolean doAction) {
         if (getParameter(PARAM_STATE) == STATE_CONSTANT) {
           lcd.print(F("Stop control"));
           if (doAction) {
-            setAndSaveParameter(PARAM_STATUS, STATE_OFF);
+            setAndSaveParameter(PARAM_STATE, STATE_OFF);
           }
         } else {
           lcd.print(F("Start control"));
@@ -415,17 +418,9 @@ void lcdMenuSettings(int counter, boolean doAction) {
   }
 }
 
-
-
 /*
   UTIILITIES FUNCTIONS
 */
-byte accelerationMode = 0;
-int lastIncrement = 0;
-
-
-boolean rotaryMayPress = true; // be sure to go through release. Seems to allow some deboucing
-
 
 void rotate() {
 
@@ -548,7 +543,7 @@ THD_FUNCTION(ThreadLcd, arg) {
 
   while (true) {
     lcdMenu();
-    chThdSleep(400);
+    chThdSleep(40);
   }
 }
 

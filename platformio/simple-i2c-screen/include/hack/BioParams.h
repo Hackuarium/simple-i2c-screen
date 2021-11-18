@@ -22,11 +22,12 @@
   THREADS
 *******************************/
 
-#define THR_LCD         1   // Define LCD
-#define THR_SERIAL      1   // Define Serial
-#define THR_WIRE_MASTER 1   // Define board like Master I2C
-#define THR_ERROR       1   // Define the pin to blink if there is an error
-#define THR_MONITORING  1   // Define the pin to blink if everything goes well
+//#define THR_EEPROM_LOGGER   1 // Define EEPROM Logger
+#define THR_LCD             1 // Define LCD
+#define THR_SERIAL          1 // Define Serial
+#define THR_WIRE_MASTER     1 // Define board like Master I2C
+//#define THR_ERROR           1 // Define the pin to blink if there is an error
+//#define THR_MONITORING      1 // Define the pin to blink if everything goes well
 
 /*******************************
   PINS
@@ -123,19 +124,21 @@
   PARAMETERS
 *******************************/
 
-#define PARAM_TEMP_EXT1      0   // A - temperature of the solution
+#define PARAM_TEMP_EXT1      0   // A - temperature over to PCB
 #define PARAM_TEMP_EXT2      1   // B - temperature of the solution
+#define PARAM_TEMP_EXT3      2   // C - temperature of the solution
 
-#define PARAM_TEMP_PCB       2   // C - temperature of the heating plate
-#define PARAM_TEMP_PID       3   // D - heating amount of energy
+#define PARAM_TEMP_PCB       3   // D - temperature of the PID
 #define PARAM_TEMP_TARGET    4   // E - target temperature of the liquid
+#define PARAM_PID            5   // F - heating amount of energy
+
 
 
 /*******************************
   PARAMETER - FLAG DEFINITION
 *******************************/
 
-#define PARAM_ERROR        23              // X - errors
+#define PARAM_ERROR                     23              // X - errors
 //extern const int PARAM_ERROR;
 #define FLAG_TEMP_PCB_PROBE_ERROR       0    // pcb probe failed (one wire not answering)
 #define FLAG_TEMP_EXT1_PROBE_ERROR      1   // external temperature 1 probe failed (one wire not answering)
@@ -178,22 +181,19 @@
 /*******************************************************************************
   IncubatorLCDThread
 *******************************************************************************/
-#define LCD_NB_ROWS     2
-#define LCD_NB_COLUMNS  16
 
+#define LCD_NB_ROWS                 2
+#define LCD_NB_COLUMNS              16
 
+#define PARAM_FLAGS                 17
+#define PARAM_FLAG_INVERT_ROTARY    1  // invert rotary direction
 
-// Incubator project
+#define PARAM_CURRENT_TIME          20
 
+#define STATE_OFF                   0
+#define STATE_CONSTANT              1
+#define STATE_PROGRAM               2
 
-#define PARAM_FLAGS           17
-#define PARAM_FLAG_INVERT_ROTARY 0  // invert rotary direction
-
-#define PARAM_CURRENT_TIME   20
-#define PARAM_STATE          21 // current state
-
-#define STATE_OFF        0
-#define STATE_CONSTANT   1
-#define STATE_PROGRAM    2
-
-#define PARAM_MENU          22 // current menu
+#define PARAM_STATE                 26 // current state
+#define PARAM_MENU                  27 // current menu
+#define PARAM_SEND                  28 // Send I2C Message

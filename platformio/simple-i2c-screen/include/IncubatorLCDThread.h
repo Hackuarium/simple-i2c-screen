@@ -7,15 +7,15 @@
 THD_WORKING_AREA( waThreadLcd, 250 );
 THD_FUNCTION( ThreadLcd, arg );
 
-void lcdMenu();
+void updateCurrentMenu( int, uint8_t, uint8_t );
+void updateCurrentMenu( int, uint8_t );
 void lcdResults( int, bool );
 void lcdStatus( int, bool );
 void lcdNumberLine( uint8_t );
-void updateCurrentMenu( int, uint8_t );
-void updateCurrentMenu( int, uint8_t, uint8_t );
 void lcdMenuHome( int, bool );
 void lcdUtilities( int, bool );
 void lcdMenuSettings( int, bool );
+void lcdMenu();
 /*
   UTIILITIES FUNCTIONS
 */

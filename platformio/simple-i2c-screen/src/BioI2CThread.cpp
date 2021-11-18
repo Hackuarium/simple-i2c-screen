@@ -5,6 +5,8 @@
 #include "Params.h"
 #include <Wire.h>
 
+#ifdef THR_WIRE_MASTER
+
 #include "BioI2C.h"
 
 // setting ATmega328 as I2C master.
@@ -19,11 +21,13 @@ extern TwoWire WireM;
 
 THD_FUNCTION(ThreadWireMaster, arg) {
 
-  chThdSleep(1000);
+  chThdSleep(11000);
 
   unsigned int wireEventStatus = 0;
 
   WireM.begin();
+
+  saveWireDeviceParameter( SLAVE_ID );  // Read params for the I2C slave and store it
 
   while (true) {
 
@@ -38,11 +42,20 @@ THD_FUNCTION(ThreadWireMaster, arg) {
 
     //chThdSleep(200);
 
+    
+    int stateParam = getParameter(PARAM_STATE);
+
+    if (getParameter(PARAM_STATUS) != stateParam ) {
+      wireWriteIntRegister(SLAVE_ID, PARAM_STATUS, stateParam);
+      wireWriteIntRegister(SLAVE_ID, PARAM_ENABLED, stateParam);
+    }
+
     saveWireDeviceParameter( SLAVE_ID );  // Read params for the I2C slave and store it
 
-    chThdSleep(1000);
+
+    chThdSleep(5000);
 
   }
 }
 
-//#endif
+#endif
