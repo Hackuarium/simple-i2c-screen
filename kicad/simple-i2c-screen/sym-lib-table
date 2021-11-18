@@ -1,0 +1,6 @@
+(sym_lib_table
+  (lib (name ZXMS6004)(type Legacy)(uri ${KIPRJMOD}/library/ZXMS6004.lib)(options "")(descr ""))
+  (lib (name incubator)(type Legacy)(uri ${KIPRJMOD}/incubator.lib)(options "")(descr ""))
+  (lib (name bioreactor)(type Legacy)(uri ${KIPRJMOD}/library/bioreactor.lib)(options "")(descr ""))
+  (lib (name incubator-rescue)(type Legacy)(uri ${KIPRJMOD}/incubator-rescue.lib)(options "")(descr ""))
+)
