@@ -357,7 +357,7 @@ SCL
 Text GLabel 5025 1775 2    50   Input ~ 0
 SDA
 Text GLabel 5025 1225 2    50   Input ~ 0
-SCK
+SCK|MONITORING
 Text GLabel 5025 1125 2    50   Input ~ 0
 MISO
 Text GLabel 5025 1025 2    50   Input ~ 0
@@ -369,20 +369,16 @@ Text GLabel 5025 1975 2    50   Input ~ 0
 $Comp
 L incubator-rescue:GND-power #PWR0105
 U 1 1 6100E2AC
-P 3900 2950
-F 0 "#PWR0105" H 3900 2700 50  0001 C CNN
-F 1 "GND" H 3905 2777 50  0000 C CNN
-F 2 "" H 3900 2950 50  0001 C CNN
-F 3 "" H 3900 2950 50  0001 C CNN
-	1    3900 2950
+P 3875 3025
+F 0 "#PWR0105" H 3875 2775 50  0001 C CNN
+F 1 "GND" H 3880 2852 50  0000 C CNN
+F 2 "" H 3875 3025 50  0001 C CNN
+F 3 "" H 3875 3025 50  0001 C CNN
+	1    3875 3025
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
 	3900 1025 3975 1025
-Wire Wire Line
-	3975 2825 3900 2825
-Wire Wire Line
-	3900 2825 3900 2950
 $Comp
 L incubator-rescue:GND-power #PWR0114
 U 1 1 611DEBA3
@@ -760,7 +756,7 @@ Wire Wire Line
 Text GLabel 6800 4750 0    50   Input ~ 0
 MISO
 Text GLabel 6800 4850 0    50   Input ~ 0
-SCK
+SCK|MONITORING
 Text GLabel 6800 4950 0    50   Input ~ 0
 ~RESET
 Wire Wire Line
@@ -881,16 +877,12 @@ F 3 "~" H 4650 5475 50  0001 C CNN
 $EndComp
 Text GLabel 5025 2975 2    50   Input ~ 0
 ERROR
-Text GLabel 5025 3075 2    50   Input ~ 0
-MONITORING
 Wire Wire Line
 	4950 2975 5025 2975
-Wire Wire Line
-	5025 3075 4950 3075
 Text GLabel 4000 5475 0    50   Input ~ 0
 ERROR
 Text GLabel 4000 5725 0    50   Input ~ 0
-MONITORING
+SCK|MONITORING
 Wire Wire Line
 	4100 5725 4000 5725
 Wire Wire Line
@@ -920,7 +912,7 @@ Wire Wire Line
 Wire Wire Line
 	4925 5475 4925 5725
 $Sheet
-S 3975 950  975  2250
+S 3975 950  975  2125
 U 61116939
 F0 "ATMEGA328P" 50
 F1 "atmega328p.sch" 50
@@ -945,7 +937,6 @@ F19 "MOSI" I R 4950 1025 50
 F20 "MISO" I R 4950 1125 50 
 F21 "SCK" I R 4950 1225 50 
 F22 "B6" I R 4950 2975 50 
-F23 "B7" I R 4950 3075 50 
 $EndSheet
 $Sheet
 S 6375 1250 550  800 
@@ -966,4 +957,8 @@ F12 "VDD" I L 6375 1325 50
 F13 "LED+" I L 6375 1425 50 
 F14 "V0" I L 6375 1525 50 
 $EndSheet
+Wire Wire Line
+	3875 2825 3975 2825
+Wire Wire Line
+	3875 2825 3875 3025
 $EndSCHEMATC
