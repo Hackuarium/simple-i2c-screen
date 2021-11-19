@@ -20,6 +20,7 @@ void setup() {
   delay(1000);
   setupParameters();
 
+  chFillStacks();
   chBegin();
 }
 

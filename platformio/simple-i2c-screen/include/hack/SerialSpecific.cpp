@@ -48,11 +48,6 @@ void processSpecificCommand(char* data, char* paramValue, Print* output) {
         output->println(getParameterBit(PARAM_ERROR, i));
       }
       break;
-#ifdef THR_WEIGHT
-    case 'w':
-      processWeightCommand(data[1], paramValue, output);
-      break;
-#endif
   }
 }
 
@@ -65,7 +60,4 @@ void printSpecificHelp(Print* output) {
 #endif
   output->println(F("(p)aram"));
   output->println(F("s(t)atus"));
-#ifdef THR_WEIGHT
-  output->println(F("(w)eight"));
-#endif
 }

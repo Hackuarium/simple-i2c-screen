@@ -106,22 +106,21 @@
 #define PARAM_PID 5       // F - heating amount of energy
 
 // Todo implemented temperature slope control
-#define PARAM_TEMP_TARGET_1 6
-#define PARAM_TIME_1 7
-#define PARAM_TEMP_TARGET_2 8
-#define PARAM_TIME_2 9
-#define PARAM_TEMP_TARGET_3 10
-#define PARAM_TIME_3 11
+#define PARAM_TEMP_TARGET_1 6   // G - target temperature of the liquid
+#define PARAM_TIME_1 7          // H - target temperature of the liquid
+#define PARAM_TEMP_TARGET_2 8   // I - target temperature of the liquid
+#define PARAM_TIME_2 9          // J - target temperature of the liquid
+#define PARAM_TEMP_TARGET_3 10  // K - target temperature of the liquid
+#define PARAM_TIME_3 11         // L - target temperature of the liquid
 
-#define PARAM_ERROR 12  // X - errors
-#define PARAM_STATE 13  // current state
-#define PARAM_MENU 14   // current menu
+#define PARAM_ERROR 12  // M - errors
+#define PARAM_STATE 13  // N - current state
+#define PARAM_MENU 14   // O - current menu
 
 /*******************************
   PARAMETER - FLAG DEFINITION
 *******************************/
 
-// extern const int PARAM_ERROR;
 #define FLAG_TEMP_PCB_PROBE_ERROR \
   0  // pcb probe failed (one wire not answering)
 #define FLAG_TEMP_EXT1_PROBE_ERROR \
