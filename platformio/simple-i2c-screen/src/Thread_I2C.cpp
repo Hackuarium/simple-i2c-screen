@@ -9,13 +9,11 @@
 
 #include "BioI2C.h"
 
-// setting ATmega328 as I2C master.
-//#ifdef THR_WIRE_MASTER
-
 // #define WIRE_MASTER_HOT_PLUG 1  // scan for new devices preventing sleep mode
 // of I2C slaves
 
-#include "BioSem.h"
+// Include Semaphore
+#include "Sem.h"
 
 extern TwoWire WireM;
 

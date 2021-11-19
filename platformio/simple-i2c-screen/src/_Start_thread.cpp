@@ -2,7 +2,7 @@
 /***********************************************************
                 Watchdog, Autoreboot Thread
 Monitor the activity. Should be the lower priority process
-If the led is "stable" (blinks 500 times per seconds), 
+If the led is "stable" (blinks 500 times per seconds),
 there are not too many activities on the microcontroler
 ************************************************************/
 #include <Arduino.h>
@@ -11,30 +11,29 @@ there are not too many activities on the microcontroler
 #include "BioParams.h"
 
 #ifdef THR_EEPROM_LOGGER
-  #include "EEPROMThread.h"
+#include "Thread_EEPROM.h"
 #endif
 
 #ifdef THR_LCD
-  #include "IncubatorLCDThread.h"
+#include "Thread_LCD.h"
 #endif
 
 #ifdef THR_WIRE_MASTER
-  #include "BioI2CThread.h"
-  //#include "WireMasterCh.h"
+#include "Thread_I2C.h"
+//#include "WireMasterCh.h"
 #endif
 
 #ifdef THR_SERIAL
-  #include "BioSerialThread.h"
+#include "Thread_Serial.h"
 #endif
 
 #ifdef THR_ERROR
-  #include "BioErrorThread.h"
+#include "Thread_Error.h"
 #endif
 
 #ifdef THR_MONITORING
-  #include "BioMonitoringThread.h"
+#include "Thread_Monitoring.h"
 #endif
-
 
 /*******************************************************************************
                           NilRTOS Multithreading Table
@@ -53,7 +52,7 @@ THD_TABLE_ENTRY(waThreadLcd, NULL, ThreadLcd, NULL)
 #endif
 
 #ifdef THR_WIRE_MASTER
-  THD_TABLE_ENTRY(waThreadWireMaster, NULL, ThreadWireMaster, NULL)
+THD_TABLE_ENTRY(waThreadWireMaster, NULL, ThreadWireMaster, NULL)
 #endif
 
 #ifdef THR_SERIAL
@@ -62,7 +61,7 @@ THD_TABLE_ENTRY(waThreadSerial, NULL, ThreadSerial, NULL)
 
 #ifdef THR_ERROR
 THD_TABLE_ENTRY(waThreadError, NULL, ThreadError, NULL)
-#endif    
+#endif
 
 #ifdef THR_MONITORING
 THD_TABLE_ENTRY(waThreadMonitoring, NULL, ThreadMonitoring, NULL)

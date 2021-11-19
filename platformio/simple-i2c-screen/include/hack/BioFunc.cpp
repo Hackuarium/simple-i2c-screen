@@ -17,7 +17,7 @@ void resetParameters() {
   */
 
   setAndSaveParameter(PARAM_STATE, 0);
-  setAndSaveParameter(PARAM_FLAGS, 0);
+  setAndSaveParameter(PARAM_FLAGS, 2);
   setAndSaveParameter(PARAM_MENU, 0);
   setAndSaveParameter(PARAM_ERROR, 0);
 

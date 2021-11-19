@@ -6,8 +6,10 @@
 
 #ifdef THR_WEIGHT
 
-#include "BioSem.h"
-//SEMAPHORE_DECL(lockTimeCriticalZone, 1); // only one process in some specific zones
+// Include Semaphore
+#include "Sem.h"
+// SEMAPHORE_DECL(lockTimeCriticalZone, 1); // only one process in some specific
+// zones
 
 //#include <HX711.h>
 #include "libraries/HX711/HX711.h"

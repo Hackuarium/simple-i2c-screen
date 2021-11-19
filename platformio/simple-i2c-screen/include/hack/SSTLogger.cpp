@@ -21,9 +21,10 @@
 #include "libraries/time/TimeLib.h"
 #include <avr/wdt.h>
 
-
-#include "BioSem.h"
-//SEMAPHORE_DECL(lockTimeCriticalZone, 1); // only one process in some specific zones
+// Include Semaphore
+#include "Sem.h"
+// SEMAPHORE_DECL(lockTimeCriticalZone, 1); // only one process in some specific
+// zones
 
 /******************************************
    DEFINE FLASH VERSION (default is SST64)

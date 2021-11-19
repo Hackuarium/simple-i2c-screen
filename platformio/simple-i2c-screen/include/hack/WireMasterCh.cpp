@@ -13,7 +13,8 @@
 byte numberI2CDevices = 0;
 byte wireDeviceID[WIRE_MAX_DEVICES];
 
-#include "BioSem.h"
+// Include Semaphore
+#include "Sem.h"
 
 #if I2C_HARDWARE == 1
 #include <Wire.h>
@@ -25,7 +26,6 @@ SoftWire WireM = SoftWire();
 #endif
 
 THD_FUNCTION(ThreadWireMaster, arg) {
-
   chThdSleep(1000);
 
   unsigned int wireEventStatus = 0;
@@ -33,7 +33,6 @@ THD_FUNCTION(ThreadWireMaster, arg) {
   WireM.begin();
 
   while (true) {
-
 #ifdef WIRE_MASTER_HOT_PLUG
     // allows to log when devices are plugged in / out
     // not suitable for i2c slave sleep mode
@@ -62,8 +61,8 @@ int wireReadInt(uint8_t address) {
 void wireWakeup(uint8_t address) {
   chSemWait(&lockTimeCriticalZone);
   WireM.beginTransmission(address);
-  WireM.endTransmission(); // Send data to I2C dev with option for a repeated
-                           // start
+  WireM.endTransmission();  // Send data to I2C dev with option for a repeated
+                            // start
   chSemSignal(&lockTimeCriticalZone);
 }
 
@@ -71,8 +70,8 @@ void wireSetRegister(uint8_t address, uint8_t registerAddress) {
   chSemWait(&lockTimeCriticalZone);
   WireM.beginTransmission(address);
   WireM.write(registerAddress);
-  WireM.endTransmission(); // Send data to I2C dev with option for a repeated
-                           // start
+  WireM.endTransmission();  // Send data to I2C dev with option for a repeated
+                            // start
   chSemSignal(&lockTimeCriticalZone);
 }
 
@@ -81,8 +80,9 @@ int wireReadIntRegister(uint8_t address, uint8_t registerAddress) {
   return wireReadInt(address);
 }
 
-void wireCopyParameter(uint8_t address, uint8_t registerAddress,
-                      uint8_t parameterID) {
+void wireCopyParameter(uint8_t address,
+                       uint8_t registerAddress,
+                       uint8_t parameterID) {
   setParameter(parameterID, wireReadIntRegister(address, registerAddress));
 }
 
@@ -93,8 +93,8 @@ void wireWriteIntRegister(uint8_t address, uint8_t registerAddress, int value) {
   if (value > 255 || value < 0)
     WireM.write(value >> 8);
   WireM.write(value & 255);
-  WireM.endTransmission(); // Send data to I2C dev with option for a repeated
-                           // start
+  WireM.endTransmission();  // Send data to I2C dev with option for a repeated
+                            // start
   chSemSignal(&lockTimeCriticalZone);
 }
 
@@ -132,16 +132,17 @@ void wireUpdateList() {
       // previous device
       if (currentPosition < numberI2CDevices &&
           wireDeviceID[currentPosition] ==
-              i) { // it is still the same device that is at the same position,
-                   // nothing to do
+              i) {  // it is still the same device that is at the same position,
+                    // nothing to do
         currentPosition++;
       } else if (currentPosition < numberI2CDevices &&
                  wireDeviceID[currentPosition] <
-                     i) { // some device(s) disappear, we need to delete them
+                     i) {  // some device(s) disappear, we need to delete them
         wireRemoveDevice(currentPosition);
         i--;
       } else if (currentPosition >= numberI2CDevices ||
-                 wireDeviceID[currentPosition] > i) { // we need to add a device
+                 wireDeviceID[currentPosition] >
+                     i) {  // we need to add a device
         wireInsertDevice(currentPosition, i);
         currentPosition++;
       }
@@ -154,7 +155,7 @@ void wireUpdateList() {
   }
 }
 
-void printWireInfo(Print *output) {
+void printWireInfo(Print* output) {
   wireUpdateList();
   output->println("I2C");
 
@@ -167,7 +168,7 @@ void printWireInfo(Print *output) {
   }
 }
 
-void printWireDeviceParameter(Print *output, uint8_t wireID) {
+void printWireDeviceParameter(Print* output, uint8_t wireID) {
   output->println(F("I2C device: "));
   output->println(wireID);
   for (byte i = 0; i < 26; i++) {
@@ -179,7 +180,6 @@ void printWireDeviceParameter(Print *output, uint8_t wireID) {
   }
 }
 
-
 bool wireDeviceExists(byte id) {
   for (byte i = 0; i < numberI2CDevices; i++) {
     if (wireDeviceID[i] == id)
@@ -188,27 +188,27 @@ bool wireDeviceExists(byte id) {
   return false;
 }
 
-
-void printWireHelp(Print *output) {
+void printWireHelp(Print* output) {
   output->println(F("(il) List devices"));
   output->println(F("(ip) List parameters"));
 }
 
-void processWireCommand(char command, char *paramValue,
-                        Print *output) { // char and char* ??
+void processWireCommand(char command,
+                        char* paramValue,
+                        Print* output) {  // char and char* ??
   switch (command) {
-  case 'p':
-    if (paramValue[0] == '\0') {
-      output->println(F("Missing device ID"));
-    } else {
-      printWireDeviceParameter(output, atoi(paramValue));
-    }
-    break;
-  case 'l':
-    printWireInfo(output);
-    break;
-  default:
-    printWireHelp(output);
+    case 'p':
+      if (paramValue[0] == '\0') {
+        output->println(F("Missing device ID"));
+      } else {
+        printWireDeviceParameter(output, atoi(paramValue));
+      }
+      break;
+    case 'l':
+      printWireInfo(output);
+      break;
+    default:
+      printWireHelp(output);
   }
 }
 
