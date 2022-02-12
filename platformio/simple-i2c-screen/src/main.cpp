@@ -6,7 +6,7 @@
 // Import constants
 #include <Params.h>
 // Import internal libraries
-#include <BioHack.h>
+#include <Hack.h>
 
 void checkParameters();
 void initParameters();

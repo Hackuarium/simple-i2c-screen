@@ -7,7 +7,7 @@
 
 #ifdef THR_WIRE_MASTER
 
-#include "BioI2C.h"
+#include "I2C.h"
 
 // #define WIRE_MASTER_HOT_PLUG 1  // scan for new devices preventing sleep mode
 // of I2C slaves

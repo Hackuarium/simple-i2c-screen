@@ -3,12 +3,12 @@
 //#include "BioFunc.h"
 #include "Params.h"
 #include "Funcs.h"
-#include "BioHack.h"
+#include "Hack.h"
 
 #ifdef THR_LCD
 
 #ifdef THR_WIRE_MASTER
-#include "BioI2C.h"
+#include "I2C.h"
 #endif
 
 #include <LiquidCrystal.h>

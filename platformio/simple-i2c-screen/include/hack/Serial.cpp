@@ -9,7 +9,7 @@
 #ifdef THR_SERIAL
 
 #ifdef THR_WIRE_MASTER
-  #include "../BioI2C.h"
+  #include "../I2C.h"
   //#include "WireMasterCh.h"
 #endif
 
