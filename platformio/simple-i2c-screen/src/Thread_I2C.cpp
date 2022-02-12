@@ -2,8 +2,8 @@
 #include <ChNil.h>
 
 #include <Wire.h>
-#include "BioParams.h"
 #include "Params.h"
+#include "Funcs.h"
 
 #ifdef THR_WIRE_MASTER
 

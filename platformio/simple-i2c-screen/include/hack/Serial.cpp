@@ -1,8 +1,8 @@
 // code taken from https://github.com/Hackuarium/simple-spectro/tree/master/arduino/SimpleSpectro. Thread allowing serail over usb communication.
 
 #include <ChNil.h>
-#include "BioParams.h"
 #include "Params.h"
+#include "Funcs.h"
 #include "SerialUtilities.h"
 #include "SerialSpecific.h"
 

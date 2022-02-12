@@ -1,8 +1,8 @@
 #include <Arduino.h>
 #include <ChNil.h>
 
-#include "BioParams.h"
 #include "Params.h"
+#include "Funcs.h"
 
 // setting ATmega328 as I2C master.
 //#ifdef THR_WIRE_MASTER

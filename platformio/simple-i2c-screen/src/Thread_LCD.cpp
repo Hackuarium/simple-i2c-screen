@@ -1,8 +1,8 @@
 #include <Arduino.h>
 #include <ChNil.h>
-#include "BioFunc.h"
-#include "BioParams.h"
-//#include "Params.h"
+//#include "BioFunc.h"
+#include "Params.h"
+#include "Funcs.h"
 #include "BioHack.h"
 
 #ifdef THR_LCD

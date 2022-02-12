@@ -10,7 +10,7 @@
 #include "NullStream.h"
 #include "ToHex.h"
 #include "Utility.h"
-#include "Params.h"
+#include "Funcs.h"
 //#include "EEPROMHack.h"
 #include "EEPROMLogger.h"
 //#include "SSTLogger.h"

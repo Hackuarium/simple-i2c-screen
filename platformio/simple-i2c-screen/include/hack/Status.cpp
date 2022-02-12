@@ -1,6 +1,6 @@
 #include <Arduino.h>
 
-#include "Params.h"
+#include "Funcs.h"
 
 bool isError(int filter) {
   if ((getParameter(PARAM_ERROR) & filter) != 0)

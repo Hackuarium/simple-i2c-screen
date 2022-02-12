@@ -1,6 +1,6 @@
 #include <Arduino.h>
 #include <ChNil.h>
-#include "BioParams.h"
+#include "Params.h"
 
 //#ifdef I2C
 #ifdef THR_WIRE_MASTER

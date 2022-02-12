@@ -1,8 +1,7 @@
 #include <Arduino.h>
 #include <ChNil.h>
 
-//#include "BioParams.h"
-#include "BioParams.h"
+#include "Params.h"
 
 #ifdef THR_ERROR
 

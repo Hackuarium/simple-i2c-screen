@@ -1,3 +1,0 @@
-void resetParameters();
-
-void checkParameters();

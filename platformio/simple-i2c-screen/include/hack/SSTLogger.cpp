@@ -6,7 +6,7 @@
   The time synchronization works through the NTP protocol and our server
 ******************************************************************************************/
 #include "Hack.h"
-#include "BioParams.h"
+#include "Params.h"
 
 #ifdef THR_SST_LOGGER
 

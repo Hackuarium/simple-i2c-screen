@@ -4,7 +4,7 @@
 #define SOFTWARE_VERSION "v1.0.3"
 
 // Import constants
-#include <BioParams.h>
+#include <Params.h>
 // Import internal libraries
 #include <BioHack.h>
 

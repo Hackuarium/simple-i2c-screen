@@ -2,7 +2,7 @@
 #include <ChNil.h>
 #include <Wire.h>
 
-#include "BioParams.h"
+#include "Params.h"
 
 // setting ATmega328 as I2C master.
 #ifdef THR_WIRE_MASTER
